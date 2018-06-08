@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue(value = "F")
-public class Formateur {
+public class Formateur extends RH{
 
 
 	public Formateur(){
