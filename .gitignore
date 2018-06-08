@@ -270,3 +270,5 @@ FinalBootMVC/\.mvn/wrapper/maven-wrapper\.jar
 FinalBootMVC/\.mvn/wrapper/maven-wrapper\.properties
 
 RemoteSystemsTempFiles/\.project
+
+\.metadata/
