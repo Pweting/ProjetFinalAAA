@@ -11,10 +11,10 @@ import com.springboot.pkg.model.Stagiaire;
 
 public interface FormationRepository extends JpaRepository<Formation, Long> {
 	
-//	@Query ("select distinct f from Formation f left outer join fetch f.stagiaires")
-//	public List<Formation> findAllStagiairesInFormation();
-//	
-//	@Query ("select distinct f from Formation f left outer join fetch f.modules")
-//	public List<Formation> findAllModulesInFormation();
+	@Query ("select distinct f from Formation f left outer join fetch f.stagiaires")
+	public List<Formation> findAllWithStagiaires();
+	
+	@Query ("select distinct f from Formation f left outer join fetch f.modules")
+	public List<Formation> findAllWithModules();
 
 }
