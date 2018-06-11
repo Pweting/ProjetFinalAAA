@@ -23,9 +23,9 @@ public class Formation {
 	@JsonView(JsonViews.Common.class)
 	private Long id;
 	@JsonView(JsonViews.Common.class)
-	private Date date_debut;
+	private Date dateDebut;
 	@JsonView(JsonViews.Common.class)
-	private Date date_fin;
+	private Date dateFin;
 
 
 	@OneToMany (mappedBy = "formation")	
@@ -46,20 +46,20 @@ public class Formation {
 		this.id = id;
 	}
 
-	public Date getDate_debut() {
-		return date_debut;
+	public Date getDateDebut() {
+		return dateDebut;
 	}
 
-	public void setDate_debut(Date date_debut) {
-		this.date_debut = date_debut;
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
 	}
 
-	public Date getDate_fin() {
-		return date_fin;
+	public Date getDateFin() {
+		return dateFin;
 	}
 
-	public void setDate_fin(Date date_fin) {
-		this.date_fin = date_fin;
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
 	}
 
 
