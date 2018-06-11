@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.databind.Module;
 
 @Entity
 public class Formation {
@@ -24,7 +23,7 @@ public class Formation {
 	private Date date_fin;
 
 
-	//@OneToMany (mappedBy = "formation")	
+	@OneToMany (mappedBy = "formation")	
 	private Set<Module> modules;
 
 	@OneToMany(mappedBy="formation")
