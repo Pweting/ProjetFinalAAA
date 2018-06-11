@@ -65,6 +65,7 @@ public class MaterielResController {
 	// post = creation
 	public ResponseEntity<Void> createMateriel(@RequestBody Materiel materiel, BindingResult br,
 	public ResponseEntity<Void> createMateriel(@RequestBody Ordinateur ordinateur, BindingResult br,
+	public ResponseEntity<Void> createOrdinateur(@RequestBody Ordinateur ordinateur, BindingResult br,
 			UriComponentsBuilder ucb) {
 
 		ResponseEntity<Void> response = null;
@@ -72,14 +73,11 @@ public class MaterielResController {
 		if (br.hasErrors()) {
 			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		if (materiel.getCode() != null) {
 		if (ordinateur.getCode() != null) {
 			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		} else {
-			materielRepository.save(materiel);
 			materielRepository.save(ordinateur);
 			HttpHeaders header = new HttpHeaders();
-			header.setLocation(ucb.path("/rest/personne/{id}").buildAndExpand(materiel.getCode()).toUri());
 			header.setLocation(ucb.path("/rest/ordinateur/{id}").buildAndExpand(ordinateur.getCode()).toUri());
 
 			response = new ResponseEntity<>(header, HttpStatus.OK);
