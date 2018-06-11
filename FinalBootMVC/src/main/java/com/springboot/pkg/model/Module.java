@@ -40,7 +40,8 @@ public class Module {
 		Id = id;
 	}
 
-	@OneToMany(mappedBy="salle")
+	@ManyToOne
+	@JoinColumn(name = "salle")
 	public Salle getSalle() {
 		return salle;
 	}

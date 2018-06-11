@@ -52,8 +52,7 @@ public class Formation {
 		this.date_fin = date_fin;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "Module")
+	@OneToMany(mappedBy="module")
 	public List<Module> getModules() {
 		return modules;
 	}

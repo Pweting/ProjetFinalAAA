@@ -4,17 +4,15 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Version;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("S")
 public class Salle extends Materiel {
 	
 	private Integer nbPersonnes;
-	@ManyToOne
-	@JoinColumn(name = "module")
+	
+	@OneToMany(mappedBy="salle")
 	private List<Module> module;
 	
 	public Salle() {
