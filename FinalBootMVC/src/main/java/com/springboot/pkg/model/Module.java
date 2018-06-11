@@ -51,7 +51,7 @@ public class Module {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "Formateur")
+	@JoinColumn(name = "formateur")
 	public Formateur getFormateur() {
 		return formateur;
 	}
@@ -61,7 +61,7 @@ public class Module {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "Matiere")
+	@JoinColumn(name = "matiere")
 	public Matiere getMatiere() {
 		return matiere;
 	}
