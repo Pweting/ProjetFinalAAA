@@ -12,26 +12,26 @@ import javax.persistence.Version;
 
 @Entity
 public class Matiere {
-	
+
 	@Id
 	@SequenceGenerator(name = "matiereSeq", sequenceName = "matiere_seq", allocationSize = 1)
-	@GeneratedValue(generator="matiereSeq", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "matiereSeq", strategy = GenerationType.SEQUENCE)
 	private Long id;
 	private String titre;
 	private Integer duree;
 	private String prerequis;
 	private String contenu;
 	private String objectif;
-	
-	@OneToMany(mappedBy="matiere")
+
+	@OneToMany(mappedBy = "matiere")
 	private List<Module> module;
-	
-	@OneToMany(mappedBy="key.matiere")
+
+	@OneToMany(mappedBy = "key.matiere")
 	private List<Formateur> formateur;
-	
+
 	@Version
 	private int version;
-	
+
 	public Matiere() {
 
 	}
@@ -43,11 +43,11 @@ public class Matiere {
 		this.contenu = contenu;
 		this.objectif = objectif;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -100,6 +100,14 @@ public class Matiere {
 		this.module = module;
 	}
 
+	public List<Formateur> getFormateur() {
+		return formateur;
+	}
+
+	public void setFormateur(List<Formateur> formateur) {
+		this.formateur = formateur;
+	}
+
 	public int getVersion() {
 		return version;
 	}
@@ -132,9 +140,5 @@ public class Matiere {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
