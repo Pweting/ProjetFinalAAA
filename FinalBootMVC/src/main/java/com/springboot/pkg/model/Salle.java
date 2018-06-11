@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 public class Salle extends Materiel {
 	
 	private Integer nbPersonnes;
+	
 	@OneToMany (mappedBy = "salle")
 	private List<Module> modules;
 	

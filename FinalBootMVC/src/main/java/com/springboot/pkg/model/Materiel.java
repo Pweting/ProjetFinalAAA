@@ -21,6 +21,7 @@ public abstract class Materiel {
 	@GeneratedValue(generator="materielSeq", strategy=GenerationType.SEQUENCE)
 	private Long code;
 	private Long cout;
+	
 	@Version
 	private int version;
 

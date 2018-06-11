@@ -17,6 +17,7 @@ public class Matiere {
 	@SequenceGenerator(name = "matiereSeq", sequenceName = "matiere_seq", allocationSize = 1)
 	@GeneratedValue(generator = "matiereSeq", strategy = GenerationType.SEQUENCE)
 	private Long id;
+	
 	private String titre;
 	private Integer duree;
 	private String prerequis;

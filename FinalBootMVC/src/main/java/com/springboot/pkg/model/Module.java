@@ -14,6 +14,7 @@ import javax.persistence.Version;
 
 @Entity
 public class Module {
+	
 	@Id
 	@SequenceGenerator(name = "ModuleSeq", sequenceName = "Module_Seq", allocationSize = 1)
 	@GeneratedValue(generator = "ModuleSeq", strategy = GenerationType.SEQUENCE)
@@ -119,4 +120,30 @@ public class Module {
 	public void setFormation(Formation formation) {
 		this.formation = formation;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Module other = (Module) obj;
+		if (Id == null) {
+			if (other.Id != null)
+				return false;
+		} else if (!Id.equals(other.Id))
+			return false;
+		return true;
+	}
+	
 }

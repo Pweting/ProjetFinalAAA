@@ -16,12 +16,14 @@ import javax.persistence.Version;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class RH {
+	
 	@Id
 	@SequenceGenerator(name = "RhSeq", sequenceName = "Rh_seq", allocationSize = 1)
 	@GeneratedValue(generator="RhSeq", strategy=GenerationType.SEQUENCE)
 	private Long id;
 	private String nom;
 	private String prenom;
+	
 	@Embedded
 	private Adresse adresse;
 	private String telephone;
@@ -29,6 +31,7 @@ public abstract class RH {
 	private String login;
 	private String mdp;
 	private boolean enable;
+	
 	@Version
 	private int version;
 	

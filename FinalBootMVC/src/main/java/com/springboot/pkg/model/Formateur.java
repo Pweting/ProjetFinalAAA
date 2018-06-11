@@ -38,6 +38,14 @@ public class Formateur extends RH {
 		this.module = module;
 	}
 
+	public Competence getCompetence() {
+		return competence;
+	}
+
+	public void setCompetence(Competence competence) {
+		this.competence = competence;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -12,9 +12,11 @@ public class Stagiaire extends RH {
 
 	@OneToOne(mappedBy="stagiaire")
 	private Ordinateur ordinateur;
+	
 	@ManyToOne
 	@JoinColumn(name = "formation")
 	private Formation formation;
+	
 	public Stagiaire() {
 
 	}
