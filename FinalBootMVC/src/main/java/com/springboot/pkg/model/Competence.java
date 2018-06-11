@@ -2,12 +2,15 @@ package com.springboot.pkg.model;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="competence")
 public class Competence {
 	
+	@Enumerated(EnumType.STRING)
 	private Niveau niveau;
 	
 	@EmbeddedId
