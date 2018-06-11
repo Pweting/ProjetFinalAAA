@@ -9,6 +9,7 @@ import com.springboot.pkg.repository.RHRepository;
 
 @RestController
 @RequestMapping("/rest/rh")
+@CrossOrigin(origins = "*")
 
 public class RHresController {
 	

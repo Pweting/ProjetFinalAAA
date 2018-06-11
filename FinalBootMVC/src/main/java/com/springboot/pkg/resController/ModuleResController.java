@@ -10,6 +10,7 @@ import com.springboot.pkg.repository.ModuleRepository;
 
 @RestController
 @RequestMapping("/rest/module")
+@CrossOrigin(origins = "*")
 
 public class ModuleResController {
 	

@@ -3,13 +3,21 @@ package com.springboot.pkg.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
 import com.fasterxml.jackson.databind.Module;
 
 
 
 public class Formation {
 
-	 
+	@Id
+	@SequenceGenerator(name = "formationSeq", sequenceName = "formation_seq", allocationSize = 1)
+	@GeneratedValue(generator="formationSeq", strategy=GenerationType.SEQUENCE)
+	 private Long id;
 	 private Date date_debut;
 	 private Date date_fin;
 	 private List<Module> modules;

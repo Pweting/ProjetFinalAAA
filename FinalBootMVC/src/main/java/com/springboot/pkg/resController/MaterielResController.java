@@ -9,6 +9,7 @@ import com.springboot.pkg.repository.MaterielRepository;
 
 @RestController
 @RequestMapping("/rest/materiel")
+@CrossOrigin(origins = "*")
 
 public class MaterielResController { 
 
