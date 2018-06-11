@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue("O")
@@ -13,6 +14,7 @@ public class Ordinateur extends Materiel {
 	private Integer ram;
 	private Integer hdd;
 	private Date anneeAchat;
+	private Stagiaire stagiaire;
 	
 	public Ordinateur() {
 		
@@ -55,6 +57,14 @@ public class Ordinateur extends Materiel {
 
 	public void setAnneeAchat(Date anneeAchat) {
 		this.anneeAchat = anneeAchat;
+	}
+	@OneToOne
+	public Stagiaire getStagiaire() {
+		return stagiaire;
+	}
+
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaire = stagiaire;
 	}
 	
 	

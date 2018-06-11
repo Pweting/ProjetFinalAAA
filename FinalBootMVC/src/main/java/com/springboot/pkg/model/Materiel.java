@@ -9,8 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
-
-import org.hibernate.annotations.GeneratorType;
+import javax.persistence.Version;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -22,6 +21,8 @@ public abstract class Materiel {
 	@GeneratedValue(generator="materielSeq", strategy=GenerationType.SEQUENCE)
 	private Long code;
 	private Long cout;
+	@Version
+	private int version;
 
 	public Materiel() {
 	}
@@ -45,6 +46,15 @@ public abstract class Materiel {
 
 	public void setCout(Long cout) {
 		this.cout = cout;
+	}
+	
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override
