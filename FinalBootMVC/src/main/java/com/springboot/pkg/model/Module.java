@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
@@ -23,18 +22,22 @@ public class Module {
 	@ManyToOne
 	@JoinColumn(name = "formateur")
 	private Formateur formateur;
+	
 	@ManyToOne
 	@JoinColumn(name = "matiere")
 	private Matiere matiere;
+	
 	private Date dateDebut;
 	private Date dateFin;
+	
 	@ManyToOne 
 	@JoinColumn (name="salle_id")
 	private Salle salle;
 
 	@Version
 	private int version;
-	@OneToOne
+	
+	@OneToOne(mappedBy="module")
 	private Videoprojecteur videoProjecteur;
 
 	@ManyToOne

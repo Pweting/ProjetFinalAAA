@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -25,6 +23,12 @@ public class Formation {
 	private Date date_fin;
 
 	
+<<<<<<< HEAD
+=======
+	@OneToMany (mappedBy = "formation")	
+	private List<Module> modules;
+	
+>>>>>>> master
 	@OneToMany(mappedBy="formation")
 	private List<Stagiaire> stagiaires;
 
