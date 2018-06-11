@@ -3,6 +3,7 @@ package com.springboot.pkg.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.databind.Module;
 
+@Entity
 public class Formation {
 
 	@Id
@@ -21,7 +23,11 @@ public class Formation {
 	private Long id;
 	private Date date_debut;
 	private Date date_fin;
+	
+	@OneToMany (mappedBy = "formation")	
 	private List<Module> modules;
+	
+	@OneToMany(mappedBy="stagiaire")
 	private List<Stagiaire> stagiaires;
 
 	public Formation() {
@@ -52,8 +58,7 @@ public class Formation {
 		this.date_fin = date_fin;
 	}
 
-	@ManyToOne
-	@JoinColumn(name ="module")
+
 	public List<Module> getModules() {
 		return modules;
 	}
@@ -62,7 +67,7 @@ public class Formation {
 		this.modules = modules;
 	}
 
-	@OneToMany(mappedBy="stagiaire")
+	
 	public List<Stagiaire> getStagiaires() {
 		return stagiaires;
 	}

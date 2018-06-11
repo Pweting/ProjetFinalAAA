@@ -16,25 +16,27 @@ import javax.persistence.Version;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class RH {
-
+	@Id
+	@SequenceGenerator(name = "RhSeq", sequenceName = "Rh_seq", allocationSize = 1)
+	@GeneratedValue(generator="RhSeq", strategy=GenerationType.SEQUENCE)
 	private Long id;
 	private String nom;
 	private String prenom;
+	@Embedded
 	private Adresse adresse;
 	private String telephone;
 	private String email;
 	private String login;
 	private String mdp;
 	private boolean enable;
+	@Version
 	private int version;
 	
 	public RH() {
 		
 	}
 
-	@Id
-	@SequenceGenerator(name = "RhSeq", sequenceName = "Rh_seq", allocationSize = 1)
-	@GeneratedValue(generator="RhSeq", strategy=GenerationType.SEQUENCE)
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,7 +61,7 @@ public abstract class RH {
 		this.prenom = prenom;
 	}
 
-	@Embedded
+	
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -108,7 +110,6 @@ public abstract class RH {
 		this.enable = enable;
 	}
 
-	@Version
 	public int getVersion() {
 		return version;
 	}

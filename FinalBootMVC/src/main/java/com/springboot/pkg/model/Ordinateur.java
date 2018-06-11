@@ -14,6 +14,7 @@ public class Ordinateur extends Materiel {
 	private Integer ram;
 	private Integer hdd;
 	private Date anneeAchat;
+	@OneToOne
 	private Stagiaire stagiaire;
 	
 	public Ordinateur() {
@@ -58,7 +59,7 @@ public class Ordinateur extends Materiel {
 	public void setAnneeAchat(Date anneeAchat) {
 		this.anneeAchat = anneeAchat;
 	}
-	@OneToOne
+
 	public Stagiaire getStagiaire() {
 		return stagiaire;
 	}

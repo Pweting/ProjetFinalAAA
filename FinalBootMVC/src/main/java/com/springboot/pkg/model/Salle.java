@@ -11,9 +11,8 @@ import javax.persistence.OneToMany;
 public class Salle extends Materiel {
 	
 	private Integer nbPersonnes;
-	
-	@OneToMany(mappedBy="salle")
-	private List<Module> module;
+	@OneToMany (mappedBy = "salle")
+	private List<Module> modules;
 	
 	public Salle() {
 
@@ -30,14 +29,15 @@ public class Salle extends Materiel {
 	public void setNbPersonnes(Integer nbPersonnes) {
 		this.nbPersonnes = nbPersonnes;
 	}
-	
-	public List<Module> getModule() {
-		return module;
+
+	public List<Module> getModules() {
+		return modules;
 	}
 
-	public void setModule(List<Module> module) {
-		this.module = module;
+	public void setModules(List<Module> modules) {
+		this.modules = modules;
 	}
+	
 	
 	
 	

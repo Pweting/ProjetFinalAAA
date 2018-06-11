@@ -10,13 +10,16 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue(value = "S")
 public class Stagiaire extends RH {
 
+	@OneToOne
 	private Ordinateur ordinateur;
+	@ManyToOne
+	@JoinColumn(name = "formation")
 	private Formation formation;
 	public Stagiaire() {
 
 	}
 
-	@OneToOne
+
 	public Ordinateur getOrdinateur() {
 		return ordinateur;
 	}
@@ -25,8 +28,7 @@ public class Stagiaire extends RH {
 		this.ordinateur = ordinateur;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "formation")
+
 	public Formation getFormation() {
 		return formation;
 	}

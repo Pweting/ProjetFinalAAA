@@ -2,6 +2,7 @@ package com.springboot.pkg.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,26 +13,38 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+@Entity
 public class Module {
-	
+	@Id
+	@SequenceGenerator(name = "ModuleSeq", sequenceName = "Module_Seq", allocationSize = 1)
+	@GeneratedValue(generator = "ModuleSeq", strategy = GenerationType.SEQUENCE)
 	private Long Id;
-	private Salle salle;
+
+	@ManyToOne
+	@JoinColumn(name = "formateur")
 	private Formateur formateur;
+	@ManyToOne
+	@JoinColumn(name = "matiere")
 	private Matiere matiere;
 	private Date dateDebut;
 	private Date dateFin;
+	@ManyToOne 
+	@JoinColumn (name="salle_id")
+	private Salle salle;
+
+	@Version
 	private int version;
+	@OneToOne
 	private Videoprojecteur videoProjecteur;
+
+	@ManyToOne
+	@JoinColumn(name = "formation")
 	private Formation formation;
-	
-	
+
 	public Module() {
-		
+
 	}
 
-	@Id
-	@SequenceGenerator(name = "ModuleSeq", sequenceName = "Module_Seq", allocationSize = 1)
-	@GeneratedValue(generator="ModuleSeq", strategy=GenerationType.SEQUENCE)
 	public Long getId() {
 		return Id;
 	}
@@ -40,18 +53,6 @@ public class Module {
 		Id = id;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "salle")
-	public Salle getSalle() {
-		return salle;
-	}
-
-	public void setSalle(Salle salle) {
-		this.salle = salle;
-	}
-
-	@ManyToOne
-	@JoinColumn(name = "formateur")
 	public Formateur getFormateur() {
 		return formateur;
 	}
@@ -60,14 +61,20 @@ public class Module {
 		this.formateur = formateur;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "matiere")
 	public Matiere getMatiere() {
 		return matiere;
 	}
 
 	public void setMatiere(Matiere matiere) {
 		this.matiere = matiere;
+	}
+
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
 	}
 
 	public Date getDateDebut() {
@@ -86,7 +93,6 @@ public class Module {
 		this.dateFin = dateFin;
 	}
 
-	@OneToOne
 	public Videoprojecteur getVideoProjecteur() {
 		return videoProjecteur;
 	}
@@ -95,7 +101,6 @@ public class Module {
 		this.videoProjecteur = videoProjecteur;
 	}
 
-	@OneToMany(mappedBy="formation")
 	public Formation getFormation() {
 		return formation;
 	}
@@ -104,7 +109,6 @@ public class Module {
 		this.formation = formation;
 	}
 
-	@Version
 	public int getVersion() {
 		return version;
 	}
@@ -112,7 +116,5 @@ public class Module {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	
-	
 
 }
