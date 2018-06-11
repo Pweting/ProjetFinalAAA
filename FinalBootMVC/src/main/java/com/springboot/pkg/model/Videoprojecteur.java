@@ -11,8 +11,6 @@ public class Videoprojecteur extends Materiel {
 	
 	private Module module;
 	
-	@Version
-	private int version;
 	
 
 	public Videoprojecteur() {
@@ -27,16 +25,6 @@ public class Videoprojecteur extends Materiel {
 	public void setModule(Module module) {
 		this.module = module;
 	}
-
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-	
-	
 	
 
 }
