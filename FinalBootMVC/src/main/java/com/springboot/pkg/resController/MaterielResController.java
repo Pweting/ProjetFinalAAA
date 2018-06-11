@@ -19,6 +19,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.pkg.model.Materiel;
 import com.springboot.pkg.model.Ordinateur;
+import com.springboot.pkg.model.Salle;
+import com.springboot.pkg.model.Videoprojecteur;
 import com.springboot.pkg.model.jsonview.JsonViews;
 import com.springboot.pkg.repository.MaterielRepository;
 
@@ -82,18 +84,62 @@ public class MaterielResController {
 		}
 		return response;
 	}
+	
+	@RequestMapping(path = { "/salle", "/salle/" }, method = RequestMethod.POST)
+	// post = creation
+	public ResponseEntity<Void> createSalle(@RequestBody Salle salle, BindingResult br,
+			UriComponentsBuilder ucb) {
+
+		ResponseEntity<Void> response = null;
+
+		if (br.hasErrors()) {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		if (salle.getCode() != null) {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} else {
+			materielRepository.save(salle);
+			HttpHeaders header = new HttpHeaders();
+			header.setLocation(ucb.path("/rest/salle/{id}").buildAndExpand(salle.getCode()).toUri());
+
+			response = new ResponseEntity<>(header, HttpStatus.OK);
+		}
+		return response;
+	}
+	
+	@RequestMapping(path = { "/videoProj", "/videoProj/" }, method = RequestMethod.POST)
+	// post = creation
+	public ResponseEntity<Void> createVideoProj(@RequestBody Videoprojecteur vp, BindingResult br,
+			UriComponentsBuilder ucb) {
+
+		ResponseEntity<Void> response = null;
+
+		if (br.hasErrors()) {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		if (vp.getCode() != null) {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} else {
+			materielRepository.save(vp);
+			HttpHeaders header = new HttpHeaders();
+			header.setLocation(ucb.path("/rest/videoProj/{id}").buildAndExpand(vp.getCode()).toUri());
+
+			response = new ResponseEntity<>(header, HttpStatus.OK);
+		}
+		return response;
+	}
 
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(path = { "/materiel", "/materiel/" }, method = RequestMethod.PUT)
-	public ResponseEntity<Materiel> updateMateriel(@RequestBody Materiel materiel, BindingResult br) {
+	@RequestMapping(path = { "/videoProj", "/videoProj/" }, method = RequestMethod.PUT)
+	public ResponseEntity<Materiel> updateVideoProj(@RequestBody Videoprojecteur videoprojecteur, BindingResult br) {
 		ResponseEntity<Materiel> response = null;
-		if (materiel.getCode() == null) {
+		if (videoprojecteur.getCode() == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		Optional<Materiel> opt = materielRepository.findById(materiel.getCode());
+		Optional<Materiel> opt = materielRepository.findById(videoprojecteur.getCode());
 		if (opt.isPresent()) {
 			Materiel materielEnBase = opt.get();
-			materielEnBase.setCout(materiel.getCout());
+			materielEnBase.setCout(videoprojecteur.getCout());
 
 			materielRepository.save(materielEnBase);
 			response = new ResponseEntity<Materiel>(materielEnBase, HttpStatus.OK);
@@ -105,4 +151,46 @@ public class MaterielResController {
 		return response;
 	}
 
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(path = { "/ordinateur", "/ordinateur/" }, method = RequestMethod.PUT)
+	public ResponseEntity<Materiel> updateOrdinateur(@RequestBody Ordinateur ordinateur, BindingResult br) {
+		ResponseEntity<Materiel> response = null;
+		if (ordinateur.getCode() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		Optional<Materiel> opt = materielRepository.findById(ordinateur.getCode());
+		if (opt.isPresent()) {
+			Materiel materielEnBase = opt.get();
+			materielEnBase.setCout(ordinateur.getCout());
+
+			materielRepository.save(materielEnBase);
+			response = new ResponseEntity<Materiel>(materielEnBase, HttpStatus.OK);
+
+		} else {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+
+		return response;
+	}
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(path = { "/salle", "/salle/" }, method = RequestMethod.PUT)
+	public ResponseEntity<Materiel> updateSalle(@RequestBody Salle salle, BindingResult br) {
+		ResponseEntity<Materiel> response = null;
+		if (salle.getCode() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		Optional<Materiel> opt = materielRepository.findById(salle.getCode());
+		if (opt.isPresent()) {
+			Materiel materielEnBase = opt.get();
+			materielEnBase.setCout(salle.getCout());
+
+			materielRepository.save(materielEnBase);
+			response = new ResponseEntity<Materiel>(materielEnBase, HttpStatus.OK);
+
+		} else {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+
+		return response;
+	}
 }
