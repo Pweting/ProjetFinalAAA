@@ -6,13 +6,19 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 @DiscriminatorValue("O")
 public class Ordinateur extends Materiel {
-	
+	@JsonView(JsonViews.Common.class)
 	private String processeur;
+	@JsonView(JsonViews.Common.class)
 	private Integer ram;
+	@JsonView(JsonViews.Common.class)
 	private Integer hdd;
+	@JsonView(JsonViews.Common.class)
 	private Date anneeAchat;
 	
 	@OneToOne

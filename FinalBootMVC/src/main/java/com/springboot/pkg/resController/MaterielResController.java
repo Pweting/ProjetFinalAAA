@@ -29,6 +29,7 @@ public class MaterielResController {
 
 	@Autowired
 	private MaterielRepository materielRepository;
+
 	@JsonView(JsonViews.Common.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Materiel> findById(@PathVariable(name = "id") Long id) {
@@ -40,6 +41,7 @@ public class MaterielResController {
 		}
 
 	}
+
 	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
 	public ResponseEntity<List<Materiel>> findAll() {
@@ -78,6 +80,7 @@ public class MaterielResController {
 		}
 		return response;
 	}
+
 	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "/materiel", "/materiel/" }, method = RequestMethod.PUT)
 	public ResponseEntity<Materiel> updateMateriel(@RequestBody Materiel materiel, BindingResult br) {
@@ -99,6 +102,5 @@ public class MaterielResController {
 
 		return response;
 	}
-
 
 }

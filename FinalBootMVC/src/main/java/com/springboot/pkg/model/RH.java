@@ -12,34 +12,43 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class RH {
-	
+
 	@Id
 	@SequenceGenerator(name = "RhSeq", sequenceName = "Rh_seq", allocationSize = 1)
-	@GeneratedValue(generator="RhSeq", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "RhSeq", strategy = GenerationType.SEQUENCE)
+	@JsonView(JsonViews.Common.class)
 	private Long id;
+	@JsonView(JsonViews.Common.class)
 	private String nom;
+	@JsonView(JsonViews.Common.class)
 	private String prenom;
-	
+
+	@JsonView(JsonViews.Common.class)
 	@Embedded
 	private Adresse adresse;
+	@JsonView(JsonViews.Common.class)
 	private String telephone;
+	@JsonView(JsonViews.Common.class)
 	private String email;
+	@JsonView(JsonViews.Common.class)
 	private String login;
 	private String mdp;
 	private boolean enable;
-	
+
 	@Version
 	private int version;
-	
+
 	public RH() {
-		
+
 	}
 
-	
 	public Long getId() {
 		return id;
 	}
@@ -64,7 +73,6 @@ public abstract class RH {
 		this.prenom = prenom;
 	}
 
-	
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -145,6 +153,5 @@ public abstract class RH {
 			return false;
 		return true;
 	}
-	
-	
+
 }
