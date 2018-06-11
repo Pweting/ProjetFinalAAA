@@ -11,6 +11,9 @@ import javax.persistence.OneToMany;
 public class Formateur extends RH{
 
 	private List<Matiere> matiere;
+	
+	@OneToMany(mappedBy="formateur")
+	private List<Module> module;
 
 	public Formateur(){
 		
