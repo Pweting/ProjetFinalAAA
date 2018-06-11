@@ -15,6 +15,8 @@ public class Formateur extends RH {
 
 	@OneToMany(mappedBy = "formateur")
 	private List<Module> module;
+	
+	private Competence competence;
 
 	public Formateur() {
 
