@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.pkg.model.Materiel;
+import com.springboot.pkg.model.jsonview.JsonViews;
 import com.springboot.pkg.repository.MaterielRepository;
 
 @RestController
@@ -27,7 +29,7 @@ public class MaterielResController {
 
 	@Autowired
 	private MaterielRepository materielRepository;
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Materiel> findById(@PathVariable(name = "id") Long id) {
 		Optional<Materiel> opt = materielRepository.findById(id);
@@ -38,7 +40,7 @@ public class MaterielResController {
 		}
 
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
 	public ResponseEntity<List<Materiel>> findAll() {
 		return new ResponseEntity<List<Materiel>>(materielRepository.findAll(), HttpStatus.OK);
@@ -76,7 +78,7 @@ public class MaterielResController {
 		}
 		return response;
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "/materiel", "/materiel/" }, method = RequestMethod.PUT)
 	public ResponseEntity<Materiel> updateMateriel(@RequestBody Materiel materiel, BindingResult br) {
 		ResponseEntity<Materiel> response = null;

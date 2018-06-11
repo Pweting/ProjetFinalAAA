@@ -16,19 +16,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.pkg.model.Module;
+import com.springboot.pkg.model.jsonview.JsonViews;
 import com.springboot.pkg.repository.ModuleRepository;
-
 
 @RestController
 @RequestMapping("/rest/module")
 @CrossOrigin(origins = "*")
 
 public class ModuleResController {
-	
+
 	@Autowired
 	private ModuleRepository moduleRepository;
 
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Module> findById(@PathVariable(name = "id") Long id) {
 		Optional<Module> opt = moduleRepository.findById(id);
@@ -40,6 +42,7 @@ public class ModuleResController {
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
 	public ResponseEntity<List<Module>> findAll() {
 		return new ResponseEntity<List<Module>>(moduleRepository.findAll(), HttpStatus.OK);
@@ -58,8 +61,7 @@ public class ModuleResController {
 
 	@RequestMapping(path = { "/module", "/module/" }, method = RequestMethod.POST)
 	// post = creation
-	public ResponseEntity<Void> createModule(@RequestBody Module module, BindingResult br,
-			UriComponentsBuilder ucb) {
+	public ResponseEntity<Void> createModule(@RequestBody Module module, BindingResult br, UriComponentsBuilder ucb) {
 
 		ResponseEntity<Void> response = null;
 
@@ -77,7 +79,7 @@ public class ModuleResController {
 		}
 		return response;
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "/module", "/module/" }, method = RequestMethod.PUT)
 	public ResponseEntity<Module> updateModule(@RequestBody Module module, BindingResult br) {
 		ResponseEntity<Module> response = null;
@@ -88,7 +90,7 @@ public class ModuleResController {
 		if (opt.isPresent()) {
 			Module moduleEnBase = opt.get();
 			moduleEnBase.setDateDebut(module.getDateDebut());
-			moduleEnBase.setDateFin( module.getDateFin());
+			moduleEnBase.setDateFin(module.getDateFin());
 			moduleEnBase.setFormateur(module.getFormateur());
 			moduleEnBase.setMatiere(module.getMatiere());
 			moduleEnBase.setSalle(module.getSalle());
@@ -104,4 +106,3 @@ public class ModuleResController {
 	}
 
 }
-

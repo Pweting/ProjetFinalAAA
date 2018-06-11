@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.pkg.model.RH;
+import com.springboot.pkg.model.jsonview.JsonViews;
 import com.springboot.pkg.repository.RHRepository;
 
 @RestController
@@ -28,6 +30,7 @@ public class RHresController {
 	@Autowired
 	private RHRepository rhRepository;
 
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<RH> findById(@PathVariable(name = "id") Long id) {
 		Optional<RH> opt = rhRepository.findById(id);
@@ -39,6 +42,7 @@ public class RHresController {
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
 	public ResponseEntity<List<RH>> findAll() {
 		return new ResponseEntity<List<RH>>(rhRepository.findAll(), HttpStatus.OK);
@@ -75,7 +79,7 @@ public class RHresController {
 		}
 		return response;
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "/rh", "/rh/" }, method = RequestMethod.PUT)
 	public ResponseEntity<RH> updateRh(@RequestBody RH rh, BindingResult br) {
 		ResponseEntity<RH> response = null;

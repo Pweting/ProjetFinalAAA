@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.pkg.model.Formation;
+import com.springboot.pkg.model.jsonview.JsonViews;
 import com.springboot.pkg.repository.FormationRepository;
 
 @RestController
@@ -27,7 +29,7 @@ public class FormationResController {
 
 	@Autowired
 	private FormationRepository formationRepository;
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Formation> findById(@PathVariable(name = "id") Long id) {
 		Optional<Formation> opt = formationRepository.findById(id);
@@ -38,7 +40,7 @@ public class FormationResController {
 		}
 
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
 	public ResponseEntity<List<Formation>> findAll() {
 		return new ResponseEntity<List<Formation>>(formationRepository.findAll(), HttpStatus.OK);
@@ -76,7 +78,7 @@ public class FormationResController {
 		}
 		return response;
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "/formation", "/formation/" }, method = RequestMethod.PUT)
 	public ResponseEntity<Formation> updateFormation(@RequestBody Formation formation, BindingResult br) {
 		ResponseEntity<Formation> response = null;
@@ -104,12 +106,14 @@ public class FormationResController {
 	}
 
 	// pour avoir les formations avec leurs stagiaires
+	@JsonView(JsonViews.FormationWithStagiaires.class)
 	@RequestMapping(value = "/stagiaires", method = RequestMethod.GET)
 	public ResponseEntity<List<Formation>> findWithStagiaires() {
 		return new ResponseEntity<List<Formation>>(formationRepository.findAllWithStagiaires(), HttpStatus.OK);
 	}
 
 	// pour avoir les formations avec leurs modules
+	@JsonView(JsonViews.FormationWithModules.class)
 	@RequestMapping(value = "/modules", method = RequestMethod.GET)
 	public ResponseEntity<List<Formation>> findWithModules() {
 		return new ResponseEntity<List<Formation>>(formationRepository.findAllWithModules(), HttpStatus.OK);
