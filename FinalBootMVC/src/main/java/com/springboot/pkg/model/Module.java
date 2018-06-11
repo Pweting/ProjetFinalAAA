@@ -69,14 +69,6 @@ public class Module {
 		this.matiere = matiere;
 	}
 
-	public Salle getSalle() {
-		return salle;
-	}
-
-	public void setSalle(Salle salle) {
-		this.salle = salle;
-	}
-
 	public Date getDateDebut() {
 		return dateDebut;
 	}
@@ -91,6 +83,22 @@ public class Module {
 
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
+	}
+
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	public Videoprojecteur getVideoProjecteur() {
@@ -108,13 +116,4 @@ public class Module {
 	public void setFormation(Formation formation) {
 		this.formation = formation;
 	}
-
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-
 }
