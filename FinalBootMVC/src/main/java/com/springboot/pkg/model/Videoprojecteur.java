@@ -3,7 +3,6 @@ package com.springboot.pkg.model;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.Version;
 
 @Entity
 @DiscriminatorValue("V")
