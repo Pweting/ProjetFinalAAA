@@ -60,11 +60,9 @@ public class MaterielResController {
 		}
 	}
 
-	@RequestMapping(path = { "/materiel", "/materiel/" }, method = RequestMethod.POST)
+
 	@RequestMapping(path = { "/ordinateur", "/ordinateur/" }, method = RequestMethod.POST)
 	// post = creation
-	public ResponseEntity<Void> createMateriel(@RequestBody Materiel materiel, BindingResult br,
-	public ResponseEntity<Void> createMateriel(@RequestBody Ordinateur ordinateur, BindingResult br,
 	public ResponseEntity<Void> createOrdinateur(@RequestBody Ordinateur ordinateur, BindingResult br,
 			UriComponentsBuilder ucb) {
 
