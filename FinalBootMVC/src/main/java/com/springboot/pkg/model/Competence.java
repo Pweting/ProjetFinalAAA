@@ -6,14 +6,19 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 @Table(name="competence")
 public class Competence {
 	
 	@Enumerated(EnumType.STRING)
+	@JsonView(JsonViews.Common.class)
 	private Niveau niveau;
 	
 	@EmbeddedId
+	@JsonView(JsonViews.Common.class)
 	private CompetencePK key;
 
 	public Competence() {

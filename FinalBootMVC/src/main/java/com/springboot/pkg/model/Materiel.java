@@ -11,6 +11,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 1)
@@ -19,7 +22,9 @@ public abstract class Materiel {
 	@Id
 	@SequenceGenerator(name = "materielSeq", sequenceName = "materiel_seq", allocationSize = 1)
 	@GeneratedValue(generator="materielSeq", strategy=GenerationType.SEQUENCE)
+	@JsonView(JsonViews.Common.class)
 	private Long code;
+	@JsonView(JsonViews.Common.class)
 	private Long cout;
 	
 	@Version

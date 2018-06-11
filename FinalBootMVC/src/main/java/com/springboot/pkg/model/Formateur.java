@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 public class Formateur extends RH {
 
 	@OneToMany(mappedBy = "key.formateur")
+	
 	private Set<Competence> matiere;
 
 	@OneToMany(mappedBy = "formateur")

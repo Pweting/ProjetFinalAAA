@@ -6,10 +6,13 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 @DiscriminatorValue("S")
 public class Salle extends Materiel {
-	
+	@JsonView(JsonViews.Common.class)
 	private Integer nbPersonnes;
 	
 	@OneToMany (mappedBy = "salle")

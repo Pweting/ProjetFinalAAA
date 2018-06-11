@@ -12,27 +12,36 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 public class Module {
 	
 	@Id
 	@SequenceGenerator(name = "ModuleSeq", sequenceName = "Module_Seq", allocationSize = 1)
 	@GeneratedValue(generator = "ModuleSeq", strategy = GenerationType.SEQUENCE)
+	@JsonView(JsonViews.Common.class)
 	private Long Id;
 
 	@ManyToOne
 	@JoinColumn(name = "formateur")
+	@JsonView(JsonViews.Common.class)
 	private Formateur formateur;
 	
 	@ManyToOne
 	@JoinColumn(name = "matiere")
+	@JsonView(JsonViews.Common.class)
 	private Matiere matiere;
 	
+	@JsonView(JsonViews.Common.class)
 	private Date dateDebut;
+	@JsonView(JsonViews.Common.class)
 	private Date dateFin;
 	
 	@ManyToOne 
 	@JoinColumn (name="salle_id")
+	@JsonView(JsonViews.Common.class)
 	private Salle salle;
 
 	@Version

@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 
 @Entity
 public class Formation {
@@ -17,9 +20,11 @@ public class Formation {
 	@Id
 	@SequenceGenerator(name = "formationSeq", sequenceName = "formation_seq", allocationSize = 1)
 	@GeneratedValue(generator = "formationSeq", strategy = GenerationType.SEQUENCE)
+	@JsonView(JsonViews.Common.class)
 	private Long id;
-	
+	@JsonView(JsonViews.Common.class)
 	private Date date_debut;
+	@JsonView(JsonViews.Common.class)
 	private Date date_fin;
 
 

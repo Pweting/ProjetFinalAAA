@@ -10,18 +10,26 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 public class Matiere {
 
 	@Id
 	@SequenceGenerator(name = "matiereSeq", sequenceName = "matiere_seq", allocationSize = 1)
 	@GeneratedValue(generator = "matiereSeq", strategy = GenerationType.SEQUENCE)
+	@JsonView(JsonViews.Common.class)
 	private Long id;
-	
+	@JsonView(JsonViews.Common.class)
 	private String titre;
+	@JsonView(JsonViews.Common.class)
 	private Integer duree;
+	@JsonView(JsonViews.Common.class)
 	private String prerequis;
+	@JsonView(JsonViews.Common.class)
 	private String contenu;
+	@JsonView(JsonViews.Common.class)
 	private String objectif;
 
 	@OneToMany(mappedBy = "matiere")
