@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.databind.Module;
@@ -49,6 +52,8 @@ public class Formation {
 		this.date_fin = date_fin;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "Module")
 	public List<Module> getModules() {
 		return modules;
 	}
@@ -57,6 +62,7 @@ public class Formation {
 		this.modules = modules;
 	}
 
+	@OneToMany(mappedBy="stagiaire")
 	public List<Stagiaire> getStagiaires() {
 		return stagiaires;
 	}
