@@ -21,7 +21,7 @@ import com.springboot.pkg.repository.FormationRepository;
 
 @RestController
 @RequestMapping("/rest/formation")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") 
 
 public class FormationResController {
 

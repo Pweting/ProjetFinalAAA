@@ -15,6 +15,6 @@ public interface FormationRepository extends JpaRepository<Formation, Long> {
 	public List<Formation> findAllWithStagiaires();
 	
 	@Query ("select distinct f from Formation f left outer join fetch f.modules")
-	public List<Formation> findAllWithModules();
+	public List<Formation> findAllWithModules(); 
 
 }

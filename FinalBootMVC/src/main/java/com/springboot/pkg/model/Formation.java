@@ -28,7 +28,7 @@ public class Formation {
 
 	}
 
-	public Long getId() {
+	public Long getId() { 
 		return id;
 	}
 
