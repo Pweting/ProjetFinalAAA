@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 public class Formateur extends RH {
 
 	@OneToMany(mappedBy = "key.formateur")
-	private List<Matiere> matiere;
+	private List<Competence> matiere;
 
 	@OneToMany(mappedBy = "formateur")
 	private List<Module> module;
@@ -20,11 +20,11 @@ public class Formateur extends RH {
 
 	}
 
-	public List<Matiere> getMatiere() {
+	public List<Competence> getMatiere() {
 		return matiere;
 	}
 
-	public void setMatiere(List<Matiere> matiere) {
+	public void setMatiere(List<Competence> matiere) {
 		this.matiere = matiere;
 	}
 

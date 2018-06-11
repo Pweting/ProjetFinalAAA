@@ -27,7 +27,7 @@ public class Matiere {
 	private List<Module> module;
 
 	@OneToMany(mappedBy = "key.matiere")
-	private List<Formateur> formateur;
+	private List<Competence> formateur;
 
 	@Version
 	private int version;
@@ -100,11 +100,11 @@ public class Matiere {
 		this.module = module;
 	}
 
-	public List<Formateur> getFormateur() {
+	public List<Competence> getFormateur() {
 		return formateur;
 	}
 
-	public void setFormateur(List<Formateur> formateur) {
+	public void setFormateur(List<Competence> formateur) {
 		this.formateur = formateur;
 	}
 
