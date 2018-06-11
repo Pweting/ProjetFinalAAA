@@ -1,7 +1,7 @@
 package com.springboot.pkg.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,11 +24,11 @@ public class Formation {
 	private Date date_fin;
 
 
-	@OneToMany (mappedBy = "formation")	
-	private List<Module> modules;
+	//@OneToMany (mappedBy = "formation")	
+	private Set<Module> modules;
 
 	@OneToMany(mappedBy="formation")
-	private List<Stagiaire> stagiaires;
+	private Set<Stagiaire> stagiaires;
 
 	public Formation() {
 
@@ -59,11 +59,11 @@ public class Formation {
 	}
 
 
-	public List<Stagiaire> getStagiaires() {
+	public Set<Stagiaire> getStagiaires() {
 		return stagiaires;
 	}
 
-	public void setStagiaires(List<Stagiaire> stagiaires) {
+	public void setStagiaires(Set<Stagiaire> stagiaires) {
 		this.stagiaires = stagiaires;
 	}
 

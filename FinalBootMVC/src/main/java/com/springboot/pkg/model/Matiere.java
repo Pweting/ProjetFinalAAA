@@ -1,6 +1,6 @@
 package com.springboot.pkg.model;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,10 +25,10 @@ public class Matiere {
 	private String objectif;
 
 	@OneToMany(mappedBy = "matiere")
-	private List<Module> module;
+	private Set<Module> module;
 
 	@OneToMany(mappedBy = "key.matiere")
-	private List<Competence> formateur;
+	private Set<Competence> formateur;
 
 	@Version
 	private int version;
@@ -93,19 +93,19 @@ public class Matiere {
 		this.objectif = objectif;
 	}
 
-	public List<Module> getModule() {
+	public Set<Module> getModule() {
 		return module;
 	}
 
-	public void setModule(List<Module> module) {
+	public void setModule(Set<Module> module) {
 		this.module = module;
 	}
 
-	public List<Competence> getFormateur() {
+	public Set<Competence> getFormateur() {
 		return formateur;
 	}
 
-	public void setFormateur(List<Competence> formateur) {
+	public void setFormateur(Set<Competence> formateur) {
 		this.formateur = formateur;
 	}
 

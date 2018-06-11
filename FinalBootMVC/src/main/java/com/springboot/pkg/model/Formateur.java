@@ -1,6 +1,6 @@
 package com.springboot.pkg.model;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -11,10 +11,10 @@ import javax.persistence.OneToMany;
 public class Formateur extends RH {
 
 	@OneToMany(mappedBy = "key.formateur")
-	private List<Competence> matiere;
+	private Set<Competence> matiere;
 
 	@OneToMany(mappedBy = "formateur")
-	private List<Module> module;
+	private Set<Module> module;
 	
 	private Competence competence;
 
@@ -22,19 +22,19 @@ public class Formateur extends RH {
 
 	}
 
-	public List<Competence> getMatiere() {
+	public Set<Competence> getMatiere() {
 		return matiere;
 	}
 
-	public void setMatiere(List<Competence> matiere) {
+	public void setMatiere(Set<Competence> matiere) {
 		this.matiere = matiere;
 	}
 
-	public List<Module> getModule() {
+	public Set<Module> getModule() {
 		return module;
 	}
 
-	public void setModule(List<Module> module) {
+	public void setModule(Set<Module> module) {
 		this.module = module;
 	}
 

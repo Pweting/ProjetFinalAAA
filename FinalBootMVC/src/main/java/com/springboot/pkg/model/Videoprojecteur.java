@@ -8,15 +8,15 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue("V")
 public class Videoprojecteur extends Materiel {
 	
+	@OneToOne
 	private Module module;
-	
 	
 
 	public Videoprojecteur() {
 		super();
 	}
 	
-	@OneToOne
+
 	public Module getModule() {
 		return module;
 	}

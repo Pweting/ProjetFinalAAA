@@ -41,8 +41,8 @@ public class Module {
 	@OneToOne(mappedBy="module")
 	private Videoprojecteur videoProjecteur;
 
-	@ManyToOne
-	@JoinColumn(name = "formation")
+	//@ManyToOne
+	//@JoinColumn(name = "formation")
 	private Formation formation;
 
 	public Module() {
