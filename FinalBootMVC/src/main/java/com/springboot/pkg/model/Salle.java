@@ -1,6 +1,6 @@
 package com.springboot.pkg.model;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ public class Salle extends Materiel {
 	private Integer nbPersonnes;
 	
 	@OneToMany (mappedBy = "salle")
-	private List<Module> modules;
+	private Set<Module> modules;
 	
 	public Salle() {
 
@@ -31,11 +31,11 @@ public class Salle extends Materiel {
 		this.nbPersonnes = nbPersonnes;
 	}
 
-	public List<Module> getModules() {
+	public Set<Module> getModules() {
 		return modules;
 	}
 
-	public void setModules(List<Module> modules) {
+	public void setModules(Set<Module> modules) {
 		this.modules = modules;
 	}
 	
