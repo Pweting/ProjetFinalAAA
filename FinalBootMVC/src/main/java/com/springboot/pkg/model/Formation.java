@@ -22,13 +22,10 @@ public class Formation {
 	private Date date_debut;
 	private Date date_fin;
 
-	
-<<<<<<< HEAD
-=======
+
 	@OneToMany (mappedBy = "formation")	
 	private List<Module> modules;
-	
->>>>>>> master
+
 	@OneToMany(mappedBy="formation")
 	private List<Stagiaire> stagiaires;
 
