@@ -8,10 +8,42 @@
       <th>Code</th>
       <th>Co&ucirc;t</th>
       <th>Processeur</th>
+      <th>Capacité Disque dur</th>
+      <th>M&eacute;moire vive</th>
+      <th>Ann&eacute;e d'achat</th>
     </tr>
     <tr *ngFor="let m of listeMateriel">
-      <td>{{m.code}}</td>
-      <td>{{m.cout}}</td>
-      <td>{{m.processeur}}</td>
+      <td *ngIf="m.type == 'ordinateur'">{{m.code}}</td>
+      <td *ngIf="m.type == 'ordinateur'">{{m.cout}}</td>
+      <td *ngIf="m.type == 'ordinateur'">{{m.processeur}}</td>
+      <td *ngIf="m.type == 'ordinateur'">{{m.hdd}} Go</td>
+      <td *ngIf="m.type == 'ordinateur'">{{m.ram}} Go</td>
+      <td *ngIf="m.type == 'ordinateur'">{{m.anneeAchat | date : "yyyy"}}</td>
     </tr>
   </table>
+  <hr>
+  <table>
+      <legend>Salle</legend>
+      <tr>
+        <th>Code</th>
+        <th>Co&ucirc;t</th>
+        <th>Nombre de places disponibles</th>
+      </tr>
+      <tr *ngFor="let m of listeMateriel">
+        <td *ngIf="m.type == 'salle'">{{m.code}}</td>
+        <td *ngIf="m.type == 'salle'">{{m.cout}}</td>
+        <td *ngIf="m.type == 'salle'">{{m.nbPersonnes}}</td>
+      </tr>
+    </table>
+    <hr>
+    <table>
+        <legend>Vid&eacute;o-Projecteur</legend>
+        <tr>
+          <th>Code</th>
+          <th>Co&ucirc;t</th>
+        </tr>
+        <tr *ngFor="let m of listeMateriel">
+          <td *ngIf="m.type == 'videoprojecteur'">{{m.code}}</td>
+          <td *ngIf="m.type == 'videoprojecteur'">{{m.cout}}</td>
+        </tr>
+      </table>
