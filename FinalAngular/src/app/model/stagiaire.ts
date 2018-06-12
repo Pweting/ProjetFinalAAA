@@ -1,3 +1,3 @@
-export class Stagiaire{
-  
+export class Stagiaire {
+
 }
