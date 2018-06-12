@@ -15,6 +15,9 @@ import { RhComponent } from './rh/rh.component';
 import { MatiereComponent } from './matiere/matiere.component';
 import { MaterielComponent } from './materiel/materiel.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { DemoUtilsComponent } from './demo-utils/demo-utils.component';
+import { DemoComponent } from './demo/component';
+import { DemoModule } from './demo/module';
 import { EditComponent } from './formation/edit/edit.component';
 import { RhDetailComponent } from './rh/rh-detail.component';
 
@@ -27,12 +30,12 @@ import { RhDetailComponent } from './rh/rh-detail.component';
     RhComponent,
     MatiereComponent,
     MaterielComponent,
-    EditComponent,
+    DemoUtilsComponent
     RhDetailComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), HttpClientModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule, DemoModule
   ],
   providers: [FormationService, MaterielService, RhService],
   bootstrap: [AppComponent]
