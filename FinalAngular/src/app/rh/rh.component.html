@@ -1,3 +1,17 @@
-<p>
-  rh works!
-</p>
+<h1>Affichage des Ressources Humaines</h1>
+<br>
+<div>
+<table>
+<legend>Stagiaires</legend>
+<tr>
+<th>Nom</th>
+<th>Prenom</th>
+<th>Adresse</th>
+</tr>
+<tr *ngFor="let r of listeRh">
+<td>{{r.nom}}</td>
+<td>{{r.prenom}}</td>
+<td>{{r.adresse}}</td>
+</tr>
+</table>
+</div>
