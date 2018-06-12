@@ -33,7 +33,11 @@ export class FormationService {
   }
 
   public save(f: Formation): Observable<any> {
-    return this.http.post<any>(`${this.url}/formation`, f);
+    const o = {
+      'dateDebut': f.dateDebut,
+      'dateFin': f.dateFin
+    };
+    return this.http.post<any>(`${this.url}/formation`, o);
   }
 
   public update(f: Formation): Observable<Formation> {
