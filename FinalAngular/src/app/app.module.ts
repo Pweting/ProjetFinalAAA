@@ -13,6 +13,7 @@ import { FormationComponent } from './formation/formation.component';
 import { RhComponent } from './rh/rh.component';
 import { MatiereComponent } from './matiere/matiere.component';
 import { MaterielComponent } from './materiel/materiel.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
