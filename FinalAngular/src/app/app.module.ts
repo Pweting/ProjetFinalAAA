@@ -1,3 +1,4 @@
+import { RhService } from './services/rh.service';
 import { MaterielService } from './services/materiel.service';
 import { FormationService } from './services/formation.service';
 import { routes } from './routes';
@@ -29,7 +30,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     BrowserModule, RouterModule.forRoot(routes), HttpClientModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [FormationService, MaterielService],
+  providers: [FormationService, MaterielService, RhService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

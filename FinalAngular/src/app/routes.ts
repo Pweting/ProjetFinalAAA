@@ -1,3 +1,4 @@
+import { MaterielComponent } from './materiel/materiel.component';
 import { FormationComponent } from './formation/formation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatiereComponent } from './matiere/matiere.component';
@@ -9,5 +10,6 @@ export const routes: Routes = [
     { path: '', component: DashboardComponent },
     { path: 'formation', component: FormationComponent },
     { path: 'matiere', component: MatiereComponent },
-    { path: 'rh', component: RhComponent }
+    { path: 'rh', component: RhComponent },
+    { path: 'materiel', component: MaterielComponent },
 ];
