@@ -12,6 +12,7 @@ export const routes: Routes = [
     { path: '', component: DashboardComponent },
     { path: 'formation', component: FormationComponent },
     { path: 'formation/edit', component: EditComponent },
+    { path: 'formation/edit/:id', component: EditComponent },
     { path: 'matiere', component: MatiereComponent },
     { path: 'rh', component: RhComponent },
     { path: 'materiel', component: MaterielComponent },
