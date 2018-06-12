@@ -88,8 +88,8 @@ public class FormationResController {
 		Optional<Formation> opt = formationRepository.findById(formation.getId());
 		if (opt.isPresent()) {
 			Formation formationEnBase = opt.get();
-			formationEnBase.setDate_debut(formation.getDate_debut());
-			formationEnBase.setDate_fin(formation.getDate_fin());
+			formationEnBase.setDateDebut(formation.getDateDebut());
+			formationEnBase.setDateFin(formation.getDateFin());
 			// prevoir de pouvoir creer des formations avec des listes de
 			// mosules ou stagiaires existantes.
 			// formationEnBase.setModules(modules);
