@@ -30,8 +30,9 @@ import { RhDetailComponent } from './rh/rh-detail.component';
     RhComponent,
     MatiereComponent,
     MaterielComponent,
-    DemoUtilsComponent
-    RhDetailComponent
+    DemoUtilsComponent,
+    RhDetailComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), HttpClientModule,

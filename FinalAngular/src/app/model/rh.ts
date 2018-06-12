@@ -7,7 +7,7 @@ export class RH {
   private _mdp: string;
   private _enable: boolean;
 
-  constructor(private _nom: string, private _prenom: string, private _adresse: Adresse, private _id?: number) {
+  constructor(private _nom: string, private _prenom: string, private _adresse: Adresse, private _type: string, private _id?: number) {
   }
   public get id(): number {
     return this._id;
@@ -38,39 +38,46 @@ export class RH {
   public set adresse(value: Adresse) {
     this._adresse = value;
   }
-    public get telephone(): string {
+  public get telephone(): string {
     return this._telephone;
   }
 
   public set telephone(value: string) {
     this._telephone = value;
   }
-    public get email(): string {
+  public get email(): string {
     return this._email;
   }
 
   public set email(value: string) {
     this._email = value;
   }
-    public get login(): string {
+  public get login(): string {
     return this._login;
   }
 
   public set login(value: string) {
     this._login = value;
   }
-    public get mdp(): string {
+  public get mdp(): string {
     return this._mdp;
   }
 
   public set mdp(value: string) {
     this._mdp = value;
   }
-      public get enable(): boolean {
+  public get enable(): boolean {
     return this._enable;
   }
 
   public set enable(value: boolean) {
     this._enable = value;
+  }
+  public get type(): string {
+    return this._type;
+  }
+
+  public set type(value: string) {
+    this._type = value;
   }
 }

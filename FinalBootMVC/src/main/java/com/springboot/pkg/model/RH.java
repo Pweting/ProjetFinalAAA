@@ -12,10 +12,16 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.springboot.pkg.model.jsonview.JsonViews;
 
 @Entity
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({ @Type(value = Ordinateur.class, name = "stagiaire"), @Type(value = Salle.class, name = "formateur"),
+		@Type(value = Videoprojecteur.class, name = "gestionnaire"), @Type(value = Videoprojecteur.class, name = "technicien")})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class RH {

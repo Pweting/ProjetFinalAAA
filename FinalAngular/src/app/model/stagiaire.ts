@@ -2,12 +2,13 @@ import {Adresse} from './adresse';
 import {Formation} from './formation';
 import {Ordinateur} from './ordinateur';
 import {RH} from './rh';
+
 export class Stagiaire extends RH {
 
   private _formation: Formation;
 
-  constructor(nom: string, prenom: string, adresse: Adresse, private _ordinateur: Ordinateur, id?: number) {
-    super(nom, prenom, adresse, id);
+  constructor(nom: string, prenom: string, adresse: Adresse, type: string, private _ordinateur: Ordinateur, id?: number) {
+    super(nom, prenom, adresse, type, id);
   }
   public set ordinateur(value: Ordinateur) {
     this._ordinateur = value;
@@ -16,7 +17,7 @@ export class Stagiaire extends RH {
   public get ordinateur(): Ordinateur {
     return this._ordinateur;
   }
-    public set formation(value: Formation) {
+  public set formation(value: Formation) {
     this._formation = value;
   }
 
