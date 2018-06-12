@@ -16,6 +16,7 @@ import { MatiereComponent } from './matiere/matiere.component';
 import { MaterielComponent } from './materiel/materiel.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { EditComponent } from './formation/edit/edit.component';
+import { RhDetailComponent } from './rh/rh-detail.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EditComponent } from './formation/edit/edit.component';
     RhComponent,
     MatiereComponent,
     MaterielComponent,
-    EditComponent
+    EditComponent,
+    RhDetailComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), HttpClientModule,
