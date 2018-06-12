@@ -1,3 +1,4 @@
-export class Niveau {
+export enum Niveau {
+  Debutant, Intermediaire, Avance, Expert
 
 }
