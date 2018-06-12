@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue(value = "S")
 public class Stagiaire extends RH {
 
+	
 	@OneToOne(mappedBy="stagiaire")
 	private Ordinateur ordinateur;
 	
