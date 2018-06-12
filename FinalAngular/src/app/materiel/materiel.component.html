@@ -1,3 +1,17 @@
-<p>
-  materiel works!
-</p>
+<h1>Affichage du mat&eacute;riel</h1>
+<br>
+<br>
+<div>
+  <table>
+    <legend>Ordinateurs</legend>
+    <tr>
+      <th>Code</th>
+      <th>Co&ucirc;t</th>
+      <th>Processeur</th>
+    </tr>
+    <tr *ngFor="let m of listeMateriel">
+      <td>{{m.code}}</td>
+      <td>{{m.cout}}</td>
+      <td>{{m.processeur}}</td>
+    </tr>
+  </table>
