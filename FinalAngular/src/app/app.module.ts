@@ -1,3 +1,4 @@
+import { MaterielService } from './services/materiel.service';
 import { FormationService } from './services/formation.service';
 import { routes } from './routes';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { FormationComponent } from './formation/formation.component';
 import { RhComponent } from './rh/rh.component';
 import { MatiereComponent } from './matiere/matiere.component';
+import { MaterielComponent } from './materiel/materiel.component';
 
 
 @NgModule({
@@ -19,13 +21,14 @@ import { MatiereComponent } from './matiere/matiere.component';
     DashboardComponent,
     FormationComponent,
     RhComponent,
-    MatiereComponent
+    MatiereComponent,
+    MaterielComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), HttpClientModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [FormationService],
+  providers: [FormationService, MaterielService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

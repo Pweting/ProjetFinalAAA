@@ -1,2 +1,18 @@
 <h1>Affichage des formations</h1>
+<br>
+<br>
+<div>
+  <table>
+    <tr>
+      <th>Id du cours</th>
+      <th>Date de d&eacute;but du cours</th>
+      <th>Date de fin du cours</th>
+    </tr>
+    <tr *ngFor="let f of listeFormation">
+      <td>{{f.id}}</td>
+      <td>{{f.dateDebut | date:"dd-MM-yyyy"}}</td>
+      <td>{{f.dateFin | date:"dd-MM-yyyy"}}</td>
+    </tr>
+  </table>
 
+</div>

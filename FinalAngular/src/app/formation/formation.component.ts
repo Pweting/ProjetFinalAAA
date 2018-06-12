@@ -1,3 +1,5 @@
+import { FormationService } from './../services/formation.service';
+import { Formation } from './../model/formation';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormationComponent implements OnInit {
 
-  constructor() { }
+  listeFormation: Array<Formation>;
+  f: Formation;
+
+  constructor(private formationService: FormationService) { }
 
   ngOnInit() {
+    this.list();
   }
 
+  public list() {
+    this.formationService.list().subscribe(result => {
+      this.listeFormation = result;
+      console.log(result);
+    }, error => {
+      console.log(error);
+    });
+  }
 }
