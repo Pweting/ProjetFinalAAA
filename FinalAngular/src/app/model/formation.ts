@@ -22,4 +22,28 @@ export class Formation {
     public set dateDebut(value: Date) {
         this._dateDebut = value;
     }
+
+    public get dateFin(): Date {
+        return this._dateDebut;
+    }
+
+    public set dateFin(value: Date) {
+        this._dateDebut = value;
+    }
+
+    public get modules(): Array<Module> {
+        return this._modules;
+    }
+
+    public set modules(value: Array<Module>) {
+        this._modules = value;
+    }
+
+    public get stagiaires(): Array<Stagiaire> {
+        return this._stagiaires;
+    }
+
+    public set stagiaires(value: Array<Stagiaire>) {
+        this._stagiaires = value;
+    }
 }
