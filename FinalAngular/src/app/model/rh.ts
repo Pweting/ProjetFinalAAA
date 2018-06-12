@@ -1,6 +1,7 @@
 
 import { Adresse } from './adresse';
 export class RH {
+  
   constructor( private _nom: string, private _prenom: string, private _adresse: Adresse, private _id?: number) {
   }
    public get id(): number {
