@@ -1,3 +1,31 @@
-<p>
-  edit works!
-</p>
+<form (ngSubmit)="save()">
+    <table>
+  
+      <tr>
+        <td>id</td>
+        <td><input type="number" readonly="readonly"
+          [(ngModel)] ="formation.id" name="id" /></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Date de d&eacute;but</td>
+        <td><input type="date" [(ngModel)] ="formation.dateDebut" required
+          name="dateDebut" #dateDebutControl="ngModel" /></td>
+        <td><div *ngIf="dateDebutControl.dirty&&dateDebutControl.invalid">Date
+            Obligatoire</div></td>
+      </tr>
+      <tr>
+        <td>Date de fin</td>
+        <td><input type="date" [(ngModel)] ="formation.dateFin" required
+          name="dateFin" #dateFinControl="ngModel" /></td>
+        <td><div *ngIf="dateFinControl.dirty&&dateFinControl.invalid">Date
+            Obligatoire</div></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button type="submit">Ajouter</button>
+          <button (click)="reset()">Annuler</button>
+        </td>
+      </tr>
+    </table>
+  </form>

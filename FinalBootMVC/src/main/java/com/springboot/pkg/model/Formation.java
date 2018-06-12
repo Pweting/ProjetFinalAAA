@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.pkg.model.jsonview.JsonViews;
@@ -22,8 +26,14 @@ public class Formation {
 	@GeneratedValue(generator = "formationSeq", strategy = GenerationType.SEQUENCE)
 	@JsonView(JsonViews.Common.class)
 	private Long id;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(JsonViews.Common.class)
 	private Date dateDebut;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(JsonViews.Common.class)
 	private Date dateFin;
 

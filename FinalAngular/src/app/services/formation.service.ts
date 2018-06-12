@@ -21,11 +21,11 @@ export class FormationService {
   }
 
   public FormationWithStagiaire(id: number): Observable<Formation> {
-    return this.http.get<Formation>(`${this.url}/{stagiaires}`);
+    return this.http.get<Formation>(`${this.url}/stagiaires`);
   }
 
   public FormationWithModule(id: number): Observable<Formation> {
-    return this.http.get<Formation>(`${this.url}/{modules}`);
+    return this.http.get<Formation>(`${this.url}/modules`);
   }
 
   public delete(id: number): Observable<any> {
@@ -33,10 +33,10 @@ export class FormationService {
   }
 
   public save(f: Formation): Observable<any> {
-    return this.http.post<any>(`${this.url}/{formation}`, f);
+    return this.http.post<any>(`${this.url}/formation`, f);
   }
 
   public update(f: Formation): Observable<Formation> {
-    return this.http.put<Formation>(`${this.url}/{formation}`, f);
+    return this.http.put<Formation>(`${this.url}/formation`, f);
   }
 }

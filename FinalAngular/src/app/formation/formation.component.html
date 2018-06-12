@@ -12,11 +12,8 @@
       <td>{{f.id}}</td>
       <td>{{f.dateDebut | date:"dd-MM-yyyy"}}</td>
       <td>{{f.dateFin | date:"dd-MM-yyyy"}}</td>
+      <td><button [routerLink]="['/formation/edit']" >Modifier</button></td>
     </tr>
   </table>
+  <button [routerLink]="['/formation/edit']">Nouvelle formation</button>
 <hr>
-<h1>Création d'une formation</h1>
-<form>
-  <button></button>
-</form>
-</div>
