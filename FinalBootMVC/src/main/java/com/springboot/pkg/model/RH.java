@@ -20,8 +20,8 @@ import com.springboot.pkg.model.jsonview.JsonViews;
 
 @Entity
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-@JsonSubTypes({ @Type(value = Ordinateur.class, name = "stagiaire"), @Type(value = Salle.class, name = "formateur"),
-		@Type(value = Videoprojecteur.class, name = "gestionnaire"), @Type(value = Videoprojecteur.class, name = "technicien")})
+@JsonSubTypes({ @Type(value = Stagiaire.class, name = "stagiaire"), @Type(value = Formateur.class, name = "formateur"),
+		@Type(value = Gestionnaire.class, name = "gestionnaire"), @Type(value = Technicien.class, name = "technicien")})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class RH {
