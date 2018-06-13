@@ -1,3 +1,4 @@
+import { EditMaterielComponent } from './materiel/edit-materiel/edit-materiel.component';
 import { MaterielComponent } from './materiel/materiel.component';
 import { FormationComponent } from './formation/formation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'formation', component: FormationComponent },
     { path: 'formation/edit', component: EditComponent },
     { path: 'formation/edit/:id', component: EditComponent },
+    { path: 'materiel/edit', component: EditMaterielComponent },
     { path: 'matiere', component: MatiereComponent },
     { path: 'rh', component: RhComponent },
     { path: 'materiel', component: MaterielComponent },
