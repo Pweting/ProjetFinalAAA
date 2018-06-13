@@ -18,6 +18,7 @@ import { FormationService } from './services/formation.service';
 import { MaterielService } from './services/materiel.service';
 import { RhService } from './services/rh.service';
 import { EditMaterielComponent } from './materiel/edit-materiel/edit-materiel.component';
+import { EditMatiereComponent } from './matiere/edit-matiere/edit-matiere.component';
 
 
 
@@ -32,7 +33,8 @@ import { EditMaterielComponent } from './materiel/edit-materiel/edit-materiel.co
     DemoUtilsComponent,
     RhDetailComponent,
     EditComponent,
-    EditMaterielComponent
+    EditMaterielComponent,
+    EditMatiereComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), HttpClientModule,

@@ -1,0 +1,31 @@
+<form (ngSubmit)="save()">
+    <table>
+  
+      <tr>
+        <td>id</td>
+        <td><input type="number" readonly="readonly"
+          [(ngModel)] ="matiere.id" name="id" /></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Objectif</td>
+        <td><input type="text" [(ngModel)] ="matiere.ojectif" required
+          name="objectif" #objectifControl="ngModel" /></td>
+        <td><div *ngIf="objectifControl.dirty&&objectifControl.invalid">Date
+            Obligatoire</div></td>
+      </tr>
+      <tr>
+       <td>Pre Requis</td>
+        <td><input type="text" [(ngModel)] ="matiere.prerequis" required
+          name="objectif" #objectifControl="ngModel" /></td>
+        <td><div *ngIf="objectifControl.dirty&&objectifControl.invalid">Date
+            Obligatoire</div></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button class="btn btn-info" type="submit">Ajouter</button>
+          <button class="btn btn-warning" (click)="reset()">Annuler</button>
+        </td>
+      </tr>
+    </table>
+  </form>

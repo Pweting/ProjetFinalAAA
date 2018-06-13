@@ -7,7 +7,8 @@ import {MatiereComponent} from './matiere/matiere.component';
 import {RhComponent} from './rh/rh.component';
 import {Routes} from '@angular/router';
 import {EditComponent} from './formation/edit/edit.component';
-import { RhDetailComponent } from './rh/rh-detail.component';
+import {EditMatiereComponent} from './matiere/edit-matiere/edit-matiere.component';
+import {RhDetailComponent} from './rh/rh-detail.component';
 
 
 export const routes: Routes = [
@@ -18,6 +19,8 @@ export const routes: Routes = [
   {path: 'materiel/edit', component: EditMaterielComponent},
   {path: 'materiel/edit/:id', component: EditMaterielComponent},
   {path: 'matiere', component: MatiereComponent},
+  {path: 'matiere/edit', component: EditMatiereComponent},
+  {path: 'matiere/edit/:id', component: EditMatiereComponent},
   {path: 'rh', component: RhComponent},
   {path: 'rh/edit', component: RhDetailComponent},
   {path: 'rh/edit/:id', component: RhDetailComponent},

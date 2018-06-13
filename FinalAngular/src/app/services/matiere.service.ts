@@ -27,6 +27,11 @@ export class MatiereService {
 
   public save(m: Matiere): Observable<any> {
     const o = {
+      'contenu': m.contenu,
+      'objectif': m.objectif,
+      'prerequis': m.prerequis,
+      'titre': m.titre,
+      'duree': m.duree
 
     };
     return this.http.post<any>(`${this.url}/matiere`, o);
