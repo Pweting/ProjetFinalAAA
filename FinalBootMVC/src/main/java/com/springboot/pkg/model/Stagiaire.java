@@ -6,6 +6,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 @Entity
 @DiscriminatorValue(value = "S")
 public class Stagiaire extends RH {
@@ -16,6 +19,7 @@ public class Stagiaire extends RH {
 	
 	@ManyToOne
 	@JoinColumn(name = "formation")
+	@JsonView(JsonViews.Common.class)
 	private Formation formation;
 	
 	public Stagiaire() {
@@ -31,7 +35,7 @@ public class Stagiaire extends RH {
 		this.ordinateur = ordinateur;
 	}
 
-
+	
 	public Formation getFormation() {
 		return formation;
 	}
