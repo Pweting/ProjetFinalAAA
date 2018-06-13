@@ -28,25 +28,29 @@ export class MaterielService {
   }
 
   public saveOrdi(value: Ordinateur): Observable<any> {
+    console.log("blblbl");
     const o = {
       'cout': value.cout,
       'processeur': value.processeur,
       'hdd': value.hdd,
       'ram': value.ram,
-      'date': value.anneAchat
+      'anneeAchat': value.anneeAchat,
+      'type': value.type
     };
     return this.http.post<any>(`${this.url}/ordinateur`, o);
   }
   public saveSalle(value: Salle): Observable<any> {
     const o = {
       'cout': value.cout,
-      'nbPersonnes': value.nbPersonnes
+      'nbPersonnes': value.nbPersonnes,
+      'type': value.type
     };
     return this.http.post<any>(`${this.url}/salle`, o);
   }
   public saveVideo(value: VideoProjecteur): Observable<any> {
     const o = {
       'cout': value.cout,
+      'type': value.type
     };
     return this.http.post<any>(`${this.url}/videoProj`, o);
   }
