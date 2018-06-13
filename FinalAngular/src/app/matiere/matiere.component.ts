@@ -26,4 +26,11 @@ export class MatiereComponent implements OnInit {
     });
   }
 
+  public delete(value: number) {
+    this.matiereService.delete(value).subscribe(result => {
+      this.list();
+    }, error => {
+      console.log(error);
+    });
+  }
 }

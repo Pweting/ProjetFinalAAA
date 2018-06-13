@@ -1,15 +1,16 @@
-<h1>Affichage des matieres enseignees</h1>
+<h1>Affichage des mati&egrave;res enseign&eacute;es</h1>
 <br>
 <br>
 <div>
 	<table class="table">
 		<tr>
-			<th>Id matiere</th>
+			<th>Id mati&egrave;re</th>
 			<th>Titre</th>
-			<th>Duree</th>
-			<th>Pre requis</th>
+			<th>Dur&eacute;e</th>
+			<th>Pr&eacute; requis</th>
 			<th>Contenu</th>
 			<th>Objectif</th>
+			<th></th>
 			<th></th>
 		</tr>
 		<tr *ngFor="let m of listeMatiere">
@@ -22,8 +23,9 @@
 
 			<td><button class="btn btn-success"
 					[routerLink]="['/matiere/edit', m.id]">Modifier</button></td>
+			<td><button class="btn btn-danger" (click)="delete(m.id)">Supprimer</button></td>
 		</tr>
 	</table>
 	<button class="btn btn-info" [routerLink]="['/matiere/edit']">Nouvelle
-		matiere</button>
+		mati&egrave;re</button>
 	<hr>
