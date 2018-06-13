@@ -26,4 +26,12 @@ export class FormationComponent implements OnInit {
       console.log(error);
     });
   }
+
+  public delete(value: number) {
+    this.formationService.delete(value).subscribe(result => {
+      this.list();
+    }, error => {
+      console.log(error);
+    });
+  }
 }

@@ -25,4 +25,12 @@ export class MaterielComponent implements OnInit {
       console.log(error);
     });
   }
+
+  public delete(value: number) {
+    this.materielService.delete(value).subscribe(result => {
+      this.list();
+    }, error => {
+      console.log(error);
+    });
+  }
 }
