@@ -19,6 +19,7 @@
       <td *ngIf="m.type == 'ordinateur'">{{m.hdd}} Go</td>
       <td *ngIf="m.type == 'ordinateur'">{{m.ram}} Go</td>
       <td *ngIf="m.type == 'ordinateur'">{{m.anneeAchat | date : "yyyy"}}</td>
+      <button *ngIf="m.type == 'ordinateur'" class="btn btn-success" [routerLink]="['/materiel/edit', m.id]" >Modifier</button>
     </tr>
   </table>
   <hr>
@@ -33,6 +34,7 @@
         <td *ngIf="m.type == 'salle'">{{m.code}}</td>
         <td *ngIf="m.type == 'salle'">{{m.cout}}</td>
         <td *ngIf="m.type == 'salle'">{{m.nbPersonnes}}</td>
+        <button *ngIf="m.type == 'salle'" class="btn btn-success" [routerLink]="['/materiel/edit', m.id]" >Modifier</button>
       </tr>
     </table>
     <hr>
@@ -45,5 +47,7 @@
         <tr *ngFor="let m of listeMateriel">
           <td *ngIf="m.type == 'videoprojecteur'">{{m.code}}</td>
           <td *ngIf="m.type == 'videoprojecteur'">{{m.cout}}</td>
+          <button *ngIf="m.type == 'videoprojecteur'" class="btn btn-success" [routerLink]="['/materiel/edit', m.id]" >Modifier</button>
         </tr>
       </table>
+      <button class="btn btn-info" [routerLink]="['/materiel/edit']">Nouveau Mat&eacute;riel</button>

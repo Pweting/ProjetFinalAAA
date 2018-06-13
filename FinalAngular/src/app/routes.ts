@@ -15,6 +15,7 @@ export const routes: Routes = [
     { path: 'formation/edit', component: EditComponent },
     { path: 'formation/edit/:id', component: EditComponent },
     { path: 'materiel/edit', component: EditMaterielComponent },
+    { path: 'materiel/edit/:id', component: EditMaterielComponent },
     { path: 'matiere', component: MatiereComponent },
     { path: 'rh', component: RhComponent },
     { path: 'materiel', component: MaterielComponent },
