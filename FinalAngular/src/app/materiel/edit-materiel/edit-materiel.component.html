@@ -3,25 +3,61 @@
     <tr>
       <td>Code du mat&eacute;riel</td>
       <td>
-        <input type="number" readonly="readonly" [(ngModel)]="materiel.cout" name="cout" />
+        <input type="number" readonly="readonly" [(ngModel)]="materiel.code" name="code" />
       </td>
       <td></td>
     </tr>
     <tr>
       <td>Choisir un mat&eacute;riel</td>
-      <select name="materiel" id="materiel">
-        <option value="salle">Salle</option>
-        <option value="ordinateur">Ordinateur</option>
-        <option value="videoprojecteur">Video-Projecteur</option>
-      </select>
+      <input type="text" [(ngModel)]="materiel.type" name = "materiel.type"/>
     </tr>
-    <tr *ngIf="materiel.type == 'ordinateur' || materiel.option == 'ordinateur' ">
+    <tr *ngIf="materiel.type == 'ordinateur'">
       <td>Co&ucirc;t du mat&eacute;riel</td>
       <td>
         <input type="number" [(ngModel)]="materiel.cout" required name="materiel.cout" #materielCoutControl="ngModel" />
       </td>
       <td>
         <div *ngIf="materielCoutControl.dirty&&materielCoutControl.invalid">Co&ucirc;t Obligatoire
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="materiel.type == 'ordinateur'">
+      <td>Processeur</td>
+      <td>
+        <input type="text" [(ngModel)]="materiel.processeur" required name="materiel.processeur" #materielProcControl="ngModel" />
+      </td>
+      <td>
+        <div *ngIf="materielProcControl.dirty&&materielProcControl.invalid">Processeur Obligatoire
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="materiel.type == 'ordinateur'">
+      <td>Capactit&eacute; du Disque dur (en Go)</td>
+      <td>
+        <input type="number" [(ngModel)]="materiel.hdd" required name="materiel.hdd" #materielHddControl="ngModel" />
+      </td>
+      <td>
+        <div *ngIf="materielHddControl.dirty&&materielHddControl.invalid">Capacit&eacute; Obligatoire
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="materiel.type == 'ordinateur'">
+      <td>M&eacute;moire vive (en Go)</td>
+      <td>
+        <input type="number" [(ngModel)]="materiel.ram" required name="materiel.ram" #materielRamControl="ngModel" />
+      </td>
+      <td>
+        <div *ngIf="materielRamControl.dirty&&materielRamControl.invalid">M&eacute;moire vive Obligatoire
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="materiel.type == 'ordinateur'">
+      <td>Date d'achat</td>
+      <td>
+        <input type="date" [(ngModel)]="materiel.anneeAchat" required name="materiel.anneeAchat" #materielAnAchatControl="ngModel" />
+      </td>
+      <td>
+        <div *ngIf="materielAnAchatControl.dirty&&materielAnAchatControl.invalid">Date Obligatoire
         </div>
       </td>
     </tr>

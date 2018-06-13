@@ -11,6 +11,7 @@
       <th>Capacité Disque dur</th>
       <th>M&eacute;moire vive</th>
       <th>Ann&eacute;e d'achat</th>
+      <th></th>
     </tr>
     <tr *ngFor="let m of listeMateriel">
       <td *ngIf="m.type == 'ordinateur'">{{m.code}}</td>
@@ -29,6 +30,7 @@
         <th>Code</th>
         <th>Co&ucirc;t</th>
         <th>Nombre de places disponibles</th>
+        <th></th>
       </tr>
       <tr *ngFor="let m of listeMateriel">
         <td *ngIf="m.type == 'salle'">{{m.code}}</td>
@@ -43,6 +45,7 @@
         <tr>
           <th>Code</th>
           <th>Co&ucirc;t</th>
+          <th></th>
         </tr>
         <tr *ngFor="let m of listeMateriel">
           <td *ngIf="m.type == 'videoprojecteur'">{{m.code}}</td>

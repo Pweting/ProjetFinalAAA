@@ -28,14 +28,36 @@ export class EditMaterielComponent implements OnInit {
 
   public save() {
     console.log(this.materiel);
-    if (!!this.materiel) {
-        this.materielService.save(this.materiel).subscribe(result => {
+    if (!!this.materiel.id) {
+      if (this.materiel.type == 'ordinateur') {
+        this.materielService.saveOrdi(this.materiel).subscribe(result => {
           this.home();
-      });
+        });
+      } if (this.materiel.type == 'salle') {
+        this.materielService.saveSalle(this.materiel).subscribe(result => {
+          this.home();
+        });
+      } if (this.materiel.type == 'videoprojecteur') {
+        this.materielService.saveVideo(this.materiel).subscribe(result => {
+          this.home();
+        });
+      }
     } else {
-      this.materielService.update(this.materiel).subscribe(result => {
-        this.home();
-      });
+      if (this.materiel.type == 'ordinateur') {
+        this.materielService.updateOrdi(this.materiel).subscribe(result => {
+          this.home();
+        });
+      }
+      if (this.materiel.type == 'salle') {
+        this.materielService.updateSalle(this.materiel).subscribe(result => {
+          this.home();
+        });
+      }
+      if (this.materiel.type == 'videoprojecteur') {
+        this.materielService.updateVideo(this.materiel).subscribe(result => {
+          this.home();
+        });
+      }
     }
   }
 

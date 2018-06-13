@@ -28,12 +28,12 @@ export class EditComponent implements OnInit {
 
   public save() {
     console.log(this.formation);
-    if (!!this.formation) {
-        this.formationService.save(this.formation).subscribe(result => {
-          this.home();
+    if (!!this.formation.id) {
+      this.formationService.update(this.formation).subscribe(result => {
+        this.home();
       });
     } else {
-      this.formationService.update(this.formation).subscribe(result => {
+      this.formationService.save(this.formation).subscribe(result => {
         this.home();
       });
     }

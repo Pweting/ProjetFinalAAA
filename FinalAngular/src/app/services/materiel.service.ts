@@ -1,3 +1,6 @@
+import { VideoProjecteur } from './../model/videoprojecteur';
+import { Salle } from './../model/salle';
+import { Ordinateur } from './../model/ordinateur';
 import { Materiel } from './../model/materiel';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -24,11 +27,37 @@ export class MaterielService {
     return this.http.delete(`${this.url}/${id}`);
   }
 
-  public save(value: Materiel): Observable<any> {
-    return this.http.post<any>(`${this.url}/{materiel}`, value);
+  public saveOrdi(value: Ordinateur): Observable<any> {
+    const o = {
+      'cout': value.cout,
+      'processeur': value.processeur,
+      'hdd': value.hdd,
+      'ram': value.ram,
+      'date': value.anneAchat
+    };
+    return this.http.post<any>(`${this.url}/ordinateur`, o);
+  }
+  public saveSalle(value: Salle): Observable<any> {
+    const o = {
+      'cout': value.cout,
+      'nbPersonnes': value.nbPersonnes
+    };
+    return this.http.post<any>(`${this.url}/salle`, o);
+  }
+  public saveVideo(value: VideoProjecteur): Observable<any> {
+    const o = {
+      'cout': value.cout,
+    };
+    return this.http.post<any>(`${this.url}/videoProj`, o);
   }
 
-  public update(value: Materiel): Observable<Materiel> {
-    return this.http.put<Materiel>(`${this.url}/{materiel}`, value);
+  public updateOrdi(value: Materiel): Observable<Materiel> {
+    return this.http.put<Materiel>(`${this.url}/ordinateur`, value);
+  }
+  public updateSalle(value: Materiel): Observable<Materiel> {
+    return this.http.put<Materiel>(`${this.url}/salle`, value);
+  }
+  public updateVideo(value: Materiel): Observable<Materiel> {
+    return this.http.put<Materiel>(`${this.url}/videoProj`, value);
   }
 }
