@@ -16,8 +16,12 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Entrer un mat&eacute;riel</td>
-			<input type="text" [(ngModel)]="materiel.type" name="materiel.type" />
+			<td>Choix du Mat&eacute;riel</td>
+			<select name="materiel.type" id="materiel.type" [(ngModel)] ="materiel.type">
+				<option [(ngValue)]="ordinateur" value="ordinateur">Ordinateur</option>
+				<option [(ngValue)]="salle" value="salle">Salle</option>
+				<option [(ngValue)]="videoprojecteur" value="videoprojecteur">Vid&eacute;o-projecteur</option>
+			</select>
 		</tr>
 		<tr *ngIf="materiel.type == 'ordinateur'">
 			<td>Processeur</td>
