@@ -1,7 +1,7 @@
-import { Formation } from './../../model/formation';
-import { FormationService } from './../../services/formation.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Formation} from './../../model/formation';
+import {FormationService} from './../../services/formation.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -12,7 +12,7 @@ export class EditComponent implements OnInit {
 
   formation: Formation | any = {};
 
-  constructor(private formationService: FormationService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private formationService: FormationService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {

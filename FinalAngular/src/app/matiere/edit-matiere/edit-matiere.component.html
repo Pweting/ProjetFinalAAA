@@ -1,31 +1,58 @@
 <form (ngSubmit)="save()">
-    <table>
-  
-      <tr>
-        <td>id</td>
-        <td><input type="number" readonly="readonly"
-          [(ngModel)] ="matiere.id" name="id" /></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Objectif</td>
-        <td><input type="text" [(ngModel)] ="matiere.ojectif" required
-          name="objectif" #objectifControl="ngModel" /></td>
-        <td><div *ngIf="objectifControl.dirty&&objectifControl.invalid">Date
-            Obligatoire</div></td>
-      </tr>
-      <tr>
-       <td>Pre Requis</td>
-        <td><input type="text" [(ngModel)] ="matiere.prerequis" required
-          name="objectif" #objectifControl="ngModel" /></td>
-        <td><div *ngIf="objectifControl.dirty&&objectifControl.invalid">Date
-            Obligatoire</div></td>
-      </tr>
-      <tr>
-        <td colspan="3">
-          <button class="btn btn-info" type="submit">Ajouter</button>
-          <button class="btn btn-warning" (click)="reset()">Annuler</button>
-        </td>
-      </tr>
-    </table>
-  </form>
+	<table>
+
+		<tr>
+			<td>id</td>
+			<td><input type="number" readonly="readonly"
+				[(ngModel)] ="matiere.id" name="id" /></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Objectif</td>
+			<td><input type="text" [(ngModel)] ="matiere.objectif" required
+				name="objectif" #objectifControl="ngModel" /></td>
+			<td><div *ngIf="objectifControl.dirty&&objectifControl.invalid">Objectif
+					Obligatoire</div></td>
+		</tr>
+		<tr>
+			<td>Pre Requis</td>
+			<td><input type="text" [(ngModel)] ="matiere.prerequis" required
+				name="prerequis" #prerequisControl="ngModel" /></td>
+			<td><div
+					*ngIf="prerequisControl.dirty&&prerequisControl.invalid">Prerequis
+					Obligatoire</div></td>
+		</tr>
+
+
+		<tr>
+			<td>Contenu</td>
+			<td><input type="text" [(ngModel)] ="matiere.contenu" required
+				name="contenu" #contenuControl="ngModel" /></td>
+			<td><div *ngIf="contenuControl.dirty&&contenuControl.invalid">contenu
+					Obligatoire</div></td>
+		</tr>
+
+		<tr>
+			<td>Titre</td>
+			<td><input type="text" [(ngModel)] ="matiere.titre" required
+				name="titre" #titreControl="ngModel" /></td>
+			<td><div *ngIf="titreControl.dirty&&titreControl.invalid">titre
+					Obligatoire</div></td>
+		</tr>
+		<tr>
+			<td>Duree</td>
+			<td><input type="number" [(ngModel)] ="matiere.duree" required
+				name="duree" #dureeControl="ngModel" /></td>
+			<td><div *ngIf="dureeControl.dirty&&dureeControl.invalid">duree
+					Obligatoire</div></td>
+		</tr>
+
+
+		<tr>
+			<td colspan="3">
+				<button class="btn btn-info" type="submit">Ajouter</button>
+				<button class="btn btn-warning" (click)="reset()">Annuler</button>
+			</td>
+		</tr>
+	</table>
+</form>
