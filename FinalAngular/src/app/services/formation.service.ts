@@ -7,7 +7,7 @@ import { Formation } from '../model/formation';
   providedIn: 'root'
 })
 export class FormationService {
-
+// tslint:disable-next-line:no-inferrable-types
   private url: string = 'http://localhost:8080/finalaaa/rest/formation';
 
   constructor(private http: HttpClient) { }

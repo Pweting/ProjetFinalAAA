@@ -8,10 +8,6 @@
       <td></td>
     </tr>
     <tr>
-      <td>Choisir un mat&eacute;riel</td>
-      <input type="text" [(ngModel)]="materiel.type" name = "materiel.type"/>
-    </tr>
-    <tr *ngIf="materiel.type == 'ordinateur'">
       <td>Co&ucirc;t du mat&eacute;riel</td>
       <td>
         <input type="number" [(ngModel)]="materiel.cout" required name="materiel.cout" #materielCoutControl="ngModel" />
@@ -20,6 +16,10 @@
         <div *ngIf="materielCoutControl.dirty&&materielCoutControl.invalid">Co&ucirc;t Obligatoire
         </div>
       </td>
+    </tr>
+    <tr>
+      <td>Entrer un mat&eacute;riel</td>
+      <input type="text" [(ngModel)]="materiel.type" name="materiel.type" />
     </tr>
     <tr *ngIf="materiel.type == 'ordinateur'">
       <td>Processeur</td>
@@ -54,12 +54,27 @@
     <tr *ngIf="materiel.type == 'ordinateur'">
       <td>Date d'achat</td>
       <td>
-        <input type="date" [(ngModel)]="materiel.anneeAchat" required name="materiel.anneeAchat" #materielAnAchatControl="ngModel" />
+        <input type="date" [(ngModel)]="materiel.anneeAchat" required name="materiel.anneeAchat" #materielAnAchatControl="ngModel"
+        />
       </td>
       <td>
         <div *ngIf="materielAnAchatControl.dirty&&materielAnAchatControl.invalid">Date Obligatoire
         </div>
       </td>
+    </tr>
+    <tr *ngIf="materiel.type == 'salle'">
+      <td>Nombre de places disponibles</td>
+      <td>
+        <input type="number" [(ngModel)]="materiel.nbPersonnes" required name="materiel.nbPersonnes" #materielNbPersControl="ngModel"
+        />
+      </td>
+      <td>
+        <div *ngIf="materielNbPersControl.dirty&&materielNbPersControl.invalid">Capacit&eacute; Obligatoire
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="materiel.type == 'videoprojecteur'">
+      <td>Pas d'information suppl&eacute;mentaire &agrave; ajouter.</td>
     </tr>
     <tr>
       <td colspan="3">

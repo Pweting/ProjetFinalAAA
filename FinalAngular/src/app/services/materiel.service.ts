@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 })
 export class MaterielService {
 
+  // tslint:disable-next-line:no-inferrable-types
   private url: string = 'http://localhost:8080/finalaaa/rest/materiel';
 
   constructor(private http: HttpClient) { }
@@ -28,7 +29,6 @@ export class MaterielService {
   }
 
   public saveOrdi(value: Ordinateur): Observable<any> {
-    console.log("blblbl");
     const o = {
       'cout': value.cout,
       'processeur': value.processeur,
