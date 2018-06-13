@@ -1,3 +1,4 @@
+import {Formateur} from '../model/formateur';
 import {RH} from '../model/rh';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
@@ -25,14 +26,28 @@ export class RhService {
     return this.http.delete(`${this.url}/${id}`);
   }
 
-  public saveFormateur(r: RH): Observable<RH> {
-    return this.http.put<RH>(`${this.url}/formateur`, r);
+  public saveFormateur(value: Formateur): Observable<RH> {
+    return this.http.put<Formateur>(`${this.url}/formateur`, value);
   }
   public RHWithFormateur(id: number): Observable<RH> {
     return this.http.get<RH>(`${this.url}/{formateur}`);
   }
-  public createFormateur(r: RH): Observable<any> {
-    return this.http.post<RH>(`${this.url}/formateur`, r);
+  public createFormateur(value: Formateur): Observable<any> {
+    console.log(value);
+    const o = {
+      'nom': value.nom,
+      'prenom': value.prenom,
+      'adresse': {
+        'cp': value.adresse.cp,
+        'num': value.adresse.num,
+        'rue': value.adresse.rue,
+        'ville': value.adresse.ville,
+        'pays': value.adresse.pays
+      },
+      'type': value.type
+    };
+    console.log(o);
+    return this.http.post<Formateur>(`${this.url}/formateur`, o);
   }
 
   public saveStagiaire(r: RH): Observable<RH> {
