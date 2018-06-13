@@ -29,32 +29,36 @@ export class EditMaterielComponent implements OnInit {
   public save() {
     console.log(this.materiel);
     if (!!this.materiel.id) {
-      if (this.materiel.type == 'ordinateur') {
-        this.materielService.saveOrdi(this.materiel).subscribe(result => {
-          this.home();
-        });
-      } if (this.materiel.type == 'salle') {
-        this.materielService.saveSalle(this.materiel).subscribe(result => {
-          this.home();
-        });
-      } if (this.materiel.type == 'videoprojecteur') {
-        this.materielService.saveVideo(this.materiel).subscribe(result => {
-          this.home();
-        });
-      }
-    } else {
+      // tslint:disable-next-line:triple-equals
       if (this.materiel.type == 'ordinateur') {
         this.materielService.updateOrdi(this.materiel).subscribe(result => {
           this.home();
         });
-      }
-      if (this.materiel.type == 'salle') {
+        // tslint:disable-next-line:triple-equals
+      } else if (this.materiel.type == 'salle') {
         this.materielService.updateSalle(this.materiel).subscribe(result => {
           this.home();
         });
-      }
-      if (this.materiel.type == 'videoprojecteur') {
+        // tslint:disable-next-line:triple-equals
+      } else if (this.materiel.type == 'videoprojecteur') {
         this.materielService.updateVideo(this.materiel).subscribe(result => {
+          this.home();
+        });
+      }
+    } else {
+      // tslint:disable-next-line:triple-equals
+      if (this.materiel.type == 'ordinateur') {
+        this.materielService.saveOrdi(this.materiel).subscribe(result => {
+          this.home();
+        });
+        // tslint:disable-next-line:triple-equals
+      } else if (this.materiel.type == 'salle') {
+        this.materielService.saveSalle(this.materiel).subscribe(result => {
+          this.home();
+        });
+        // tslint:disable-next-line:triple-equals
+      } else if (this.materiel.type == 'videoprojecteur') {
+        this.materielService.saveVideo(this.materiel).subscribe(result => {
           this.home();
         });
       }

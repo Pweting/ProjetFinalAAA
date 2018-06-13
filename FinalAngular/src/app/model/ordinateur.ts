@@ -2,7 +2,7 @@ import { Materiel } from './materiel';
 
 export class Ordinateur extends Materiel {
 
-    constructor(code?: number, cout?: number, private _processeur?: string, private _hdd?: number,
+    constructor(code: number, cout?: number, private _processeur?: string, private _hdd?: number,
          private _ram?: number, private _anneeAchat?: Date) {
         super(code, cout);
     }
@@ -24,10 +24,10 @@ export class Ordinateur extends Materiel {
     public set ram(value: number) {
         this._ram = value;
     }
-    public get anneAchat(): Date {
+    public get anneeAchat(): Date {
         return this._anneeAchat;
     }
-    public set anneAchat(value: Date) {
+    public set anneeAchat(value: Date) {
         this._anneeAchat = value;
     }
 }
