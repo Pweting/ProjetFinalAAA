@@ -11,7 +11,7 @@
 		<tr *ngFor="let r of listeRh">
 			<td *ngIf="r.type == 'stagiaire'">{{r.nom}}</td>
 			<td *ngIf="r.type == 'stagiaire'">{{r.prenom}}</td>
-			<td *ngIf="r.type == 'stagiaire'">{{r.adresse}}</td>
+			<td *ngIf="r.type == 'stagiaire'">Code Postal : {{r.adresse.cp}} ; Adresse : {{r.adresse.num}}  rue {{r.adresse.rue}} &agrave; {{r.adresse.ville}}  ; Pays {{r.adresse.pays}}</td>
 		</tr>
 	</table>
 	<hr>
@@ -27,7 +27,7 @@
 		<tr *ngFor="let r of listeRh">
 			<td *ngIf="r.type == 'formateur'">{{r.nom}}</td>
 			<td *ngIf="r.type == 'formateur'">{{r.prenom}}</td>
-			<td *ngIf="r.type == 'formateur'">{{r.adresse}}</td>
+			<td *ngIf="r.type == 'formateur'">Code Postal : {{r.adresse.cp}} ; Adresse : {{r.adresse.num}}  rue {{r.adresse.rue}} &agrave; {{r.adresse.ville}}  ; Pays {{r.adresse.pays}}</td>
 		</tr>
 	</table>
 	<hr>
@@ -43,7 +43,7 @@
 		<tr *ngFor="let r of listeRh">
 			<td *ngIf="r.type == 'gestionnaire'">{{r.nom}}</td>
 			<td *ngIf="r.type == 'gestionnaire'">{{r.prenom}}</td>
-			<td *ngIf="r.type == 'gestionnaire'">{{r.adresse}}</td>
+			<td *ngIf="r.type == 'gestionnaire'">Code Postal : {{r.adresse.cp}} ; Adresse : {{r.adresse.num}}  rue {{r.adresse.rue}} &agrave; {{r.adresse.ville}}  ; Pays {{r.adresse.pays}}</td>
 		</tr>
 	</table>
 	<hr>
@@ -59,7 +59,7 @@
 		<tr *ngFor="let r of listeRh">
 			<td *ngIf="r.type == 'technicien'">{{r.nom}}</td>
 			<td *ngIf="r.type == 'technicien'">{{r.prenom}}</td>
-			<td *ngIf="r.type == 'technicien'">{{r.adresse}}</td>
+			<td *ngIf="r.type == 'technicien'">Code Postal : {{r.adresse.cp}} ; Adresse : {{r.adresse.num}}  rue {{r.adresse.rue}} &agrave; {{r.adresse.ville}}  ; Pays {{r.adresse.pays}}</td>
 		</tr>
 	</table>
 	<hr>

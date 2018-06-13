@@ -2,14 +2,22 @@ package com.springboot.pkg.model;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.pkg.model.jsonview.JsonViews;
+
 
 @Embeddable
 public class Adresse {
 
+	@JsonView(JsonViews.Common.class)
 	private Integer num;
+	@JsonView(JsonViews.Common.class)
 	private Integer cp;
+	@JsonView(JsonViews.Common.class)
 	private String rue;
+	@JsonView(JsonViews.Common.class)
 	private String ville;
+	@JsonView(JsonViews.Common.class)
 	private String pays;
 	
 	
