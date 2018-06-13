@@ -1,3 +1,5 @@
+import { Matiere } from '../model/matiere';
+import { MatiereService } from '../services/matiere.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatiereComponent implements OnInit {
 
-  constructor() { }
+   listeMatiere: Array<Matiere>;
+  m: Matiere;
+  constructor(private matiereService: MatiereService) { }
 
   ngOnInit() {
+    this.list();
+  }
+
+  public list() {
+    this.matiereService.list().subscribe(result => {
+      this.listeMatiere = result;
+      console.log(result);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

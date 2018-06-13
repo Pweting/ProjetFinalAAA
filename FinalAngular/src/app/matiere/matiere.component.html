@@ -1,3 +1,29 @@
-<p>
-  matiere works!
-</p>
+<h1>Affichage des matieres enseignees</h1>
+<br>
+<br>
+<div>
+	<table class="table">
+		<tr>
+			<th>Id matiere</th>
+			<th>Titre</th>
+			<th>Duree</th>
+			<th>Pre requis</th>
+			<th>Contenu</th>
+			<th>Objectif</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let m of listeMatiere">
+			<td>{{m.id}}</td>
+			<td>{{m.titre}}</td>
+			<td>{{m.duree}}</td>
+			<td>{{m.prerequis}}</td>
+			<td>{{m.contenu}}</td>
+			<td>{{m.objectif}}</td>
+
+			<td><button class="btn btn-success"
+					[routerLink]="['/matiere/edit', m.id]">Modifier</button></td>
+		</tr>
+	</table>
+	<button class="btn btn-info" [routerLink]="['/matiere/edit']">Nouvelle
+		formation</button>
+	<hr>
